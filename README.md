@@ -1,5 +1,20 @@
 # Agentic SDLC System: URL Shortener
 
+## Run everything (one command)
+
+Open **Command Prompt**, go to the project folder and run:
+
+```
+cd C:\path\to\AgenticSdlc
+run-tests ai
+```
+
+This builds the project, runs all tests, runs the greenfield, brownfield, ambiguous and safe-stop scenarios with real
+Claude agents, and checks the URL shortener end to end. It takes about 30 minutes and costs about $3. Success ends with `ALL STAGES PASSED`;
+the report is in `TestResults\acceptance\acceptance-report.md`.
+
+No Claude Code on the machine? Use `run-tests rules` instead: the same checks with built-in rule-based agents, free, about 1 minute.
+
 > **Start here:** [docs/PROJECT_GUIDE.md](docs/PROJECT_GUIDE.md): what it does, what it needs, every activity, the security checks, how it is tested, the evidence, and a 10-minute demo plan.
 
 An agentic software-engineering system that turns a requirement into a **reviewable engineering outcome** under
