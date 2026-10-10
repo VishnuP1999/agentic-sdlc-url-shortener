@@ -62,7 +62,7 @@ flowchart LR
 
 | Requirement | Why | Notes |
 |---|---|---|
-| **.NET 8 SDK** (or newer SDK) | Builds and runs everything | The assignment does not prescribe a stack; .NET 8 is the LTS version of the existing project. No NuGet packages are needed. |
+| **.NET SDK 8 or newer** | Builds and runs everything | The code targets .NET 8 (LTS); `Directory.Build.props` sets RollForward=Major so it also runs on .NET 9/10 when .NET 8 is not installed. No NuGet packages are needed. |
 | **Claude Code**, logged in | The AI agents call Claude through it | The VS Code extension bundles it, or `npm install -g @anthropic-ai/claude-code`. On servers, set `ANTHROPIC_API_KEY`. |
 | Without Claude Code | Still runs | The default `auto` mode detects this and uses the built-in rule-based agents, and says so. |
 | Windows, Linux or macOS | Runs anywhere .NET runs | `run-tests.ps1` (Windows) and `run-tests.sh` (Linux/macOS) |

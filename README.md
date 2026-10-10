@@ -7,7 +7,18 @@ This repository contains two things you can run:
 | **1** | **Test everything**: the agentic AI tool runs all scenarios and all tests automatically | [Part 1](#part-1-test-everything) |
 | **2** | **Use the URL shortener**: start the app and shorten your own link | [Part 2](#part-2-use-the-url-shortener-shorten-your-own-link) |
 
-Only prerequisite: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0). Open a terminal in the project folder.
+### Prerequisites
+
+| Needed for | What to install | Check it's there |
+|---|---|---|
+| **Everything (required)** | [.NET SDK](https://dotnet.microsoft.com/download), **version 8 or newer**. .NET 8 is recommended; .NET 9 or 10 also work. | `dotnet --version` prints `8.x`, `9.x` or `10.x` |
+| AI mode only (optional) | [Claude Code](https://docs.anthropic.com/en/docs/claude-code), logged in, or an `ANTHROPIC_API_KEY` | `claude --version` works, or the Claude Code extension is installed in VS Code (its built-in copy is found automatically) |
+| Nothing else | No database, no Docker, no NuGet packages, no internet (except for AI mode) | |
+
+If `dotnet` is "not recognized", the .NET SDK is not installed: download it from the link above, install it, open a
+**new** terminal, and run `dotnet --version` again.
+
+Then open a terminal in the project folder (the one containing `AgenticSdlc.sln`).
 
 ---
 
@@ -101,7 +112,7 @@ safe-stop, re-planning, a hash-chained audit trail and reliability metrics.
 
 ## Quick start
 
-Requirements: **.NET 8 SDK**. For AI agents: **Claude Code** (CLI, or the VS Code extension, which bundles the binary) logged in,
+Requirements: **.NET SDK 8 or newer**. For AI agents: **Claude Code** (CLI, or the VS Code extension, which bundles the binary) logged in,
 or `ANTHROPIC_API_KEY` set. Without Claude Code the default `auto` mode detects this and runs the rule-based agents.
 No NuGet packages are used, so it builds offline.
 

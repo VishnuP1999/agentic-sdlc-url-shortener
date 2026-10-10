@@ -1,0 +1,10 @@
+<Project>
+  <!--
+    Applies to every project. The code targets .NET 8 (LTS). RollForward=Major lets the apps and tests also run on a
+    newer installed runtime (.NET 9, 10, ...) when the .NET 8 runtime is not present, so reviewers with only a newer
+    SDK can build and run everything without installing .NET 8.
+  -->
+  <PropertyGroup>
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+</Project>
