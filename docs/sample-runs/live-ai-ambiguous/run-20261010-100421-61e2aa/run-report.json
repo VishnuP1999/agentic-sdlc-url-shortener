@@ -1,0 +1,253 @@
+{
+  "runId": "run-20261010-100421-61e2aa",
+  "status": "Completed",
+  "stopReason": null,
+  "startedAt": "2026-10-10T10:04:21.6452776+00:00",
+  "finishedAt": "2026-10-10T10:08:30.0436823+00:00",
+  "planVersion": 1,
+  "auditChainValid": true,
+  "metrics": {
+    "attemptsTotal": 9,
+    "attemptsSucceeded": 9,
+    "attemptSuccessRate": 1,
+    "nodesTotal": 7,
+    "nodesSucceeded": 7,
+    "nodeSuccessRate": 1,
+    "retries": 0,
+    "rollbacks": 0,
+    "fallbacks": 0,
+    "replans": 0,
+    "approvals": 1,
+    "clarifications": 2,
+    "recoveries": 0,
+    "mttrMs": null,
+    "endToEndMs": 248394,
+    "perNode": [
+      {
+        "nodeId": "design",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 28705
+      },
+      {
+        "nodeId": "docs",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 26205
+      },
+      {
+        "nodeId": "implementation",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 103779
+      },
+      {
+        "nodeId": "release",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 22
+      },
+      {
+        "nodeId": "requirements",
+        "attempts": 3,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 41732
+      },
+      {
+        "nodeId": "security",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 32
+      },
+      {
+        "nodeId": "tests",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 73885
+      }
+    ],
+    "modelCalls": 7,
+    "modelCallFailures": 0,
+    "modelInputTokens": 64548,
+    "modelOutputTokens": 33783,
+    "modelCostUsd": 0.5533
+  },
+  "nodes": [
+    {
+      "id": "requirements",
+      "state": "Succeeded",
+      "attempts": 3,
+      "durationMs": 41816,
+      "lastError": null
+    },
+    {
+      "id": "design",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 28717,
+      "lastError": null
+    },
+    {
+      "id": "implementation",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 103787,
+      "lastError": null
+    },
+    {
+      "id": "tests",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 73911,
+      "lastError": null
+    },
+    {
+      "id": "docs",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 26226,
+      "lastError": null
+    },
+    {
+      "id": "security",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 38,
+      "lastError": null
+    },
+    {
+      "id": "release",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 39,
+      "lastError": null
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "api-docs",
+      "version": 1,
+      "hash": "c4a8070146a15565c6c2e28b5e7761e4a2bff889a6c3378bf958db58debe63df",
+      "producedBy": "AiDocsAgent"
+    },
+    {
+      "name": "changeset",
+      "version": 1,
+      "hash": "85981075abadc77e086b2fa4a71326406590992ad0f3a2d9196c52a4c3f15e83",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "design",
+      "version": 1,
+      "hash": "c4de6b3562a553f13d85c4281334817fba28d4f56d70fbf7d39b19b36d7ac7eb",
+      "producedBy": "AiArchitectAgent"
+    },
+    {
+      "name": "engineering-summary",
+      "version": 1,
+      "hash": "1c35810bfa142e8db3e0217e5678e02f252001b3e7ecdb8b2e08e4436b82a67c",
+      "producedBy": "ReleaseAgent"
+    },
+    {
+      "name": "openapi",
+      "version": 1,
+      "hash": "e9344c0e1ccd4f5aa29f75d963625f905857f6342f3b5fa85a79117ea43ea41a",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "plan",
+      "version": 1,
+      "hash": "bd49df9f1610d9b578a803806aaabf5877e75cc54aefd33d0579d5cc358568e5",
+      "producedBy": "AiArchitectAgent"
+    },
+    {
+      "name": "proposed-changes",
+      "version": 1,
+      "hash": "e04526bd8f7722025a1c7d92fc3c0a9c72954060cf578d67cf97bd8cc7c348cd",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "proposed-tests",
+      "version": 1,
+      "hash": "df3b247db333c7ee88392064c401e5d0d91659a353cf356730d8c4086643b839",
+      "producedBy": "AiTesterAgent"
+    },
+    {
+      "name": "release-checklist",
+      "version": 1,
+      "hash": "24543bcd1a664bed8702fbd1aa410c0e219839bd7c82a8e72ab229a82bafed54",
+      "producedBy": "ReleaseAgent"
+    },
+    {
+      "name": "requirement",
+      "version": 3,
+      "hash": "49bf525e13e3f380dd06b0f3f57bd70d06824f961fc3ab26a5a7ea7b6d36f11f",
+      "producedBy": "AiRequirementsAgent"
+    },
+    {
+      "name": "schema",
+      "version": 1,
+      "hash": "8767e4e8db07ebd997e292de4a8d5a6c402f9e6c33cb52241a96dae75db4e702",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "security-report",
+      "version": 1,
+      "hash": "90a584f2bfcdfb1a8e1233f007433d63215b4108f178db3bec17ab3584ae2d3f",
+      "producedBy": "SecurityAgent"
+    },
+    {
+      "name": "test-plan",
+      "version": 1,
+      "hash": "2f9a1fb2b3f46be4b2cc5ac434f54be9fc22d7413d3bf83906ec73ad7cea57f0",
+      "producedBy": "AiTesterAgent"
+    },
+    {
+      "name": "test-report",
+      "version": 1,
+      "hash": "90873ce77144ad5575d6041f29fda6c9666647fa6459a3b90c70c366f92b1935",
+      "producedBy": "orchestrator:sandbox"
+    },
+    {
+      "name": "validation-report",
+      "version": 2,
+      "hash": "65e161eaa198ee6004d134173469e72808e363833a07f2853d193d2b3642910e",
+      "producedBy": "orchestrator:sandbox"
+    }
+  ],
+  "artifactVersionsProduced": [
+    "requirement@v1",
+    "requirement@v2",
+    "requirement@v3",
+    "design@v1",
+    "plan@v1",
+    "api-docs@v1",
+    "changeset@v1",
+    "proposed-changes@v1",
+    "openapi@v1",
+    "schema@v1",
+    "validation-report@v1",
+    "test-plan@v1",
+    "proposed-tests@v1",
+    "test-report@v1",
+    "validation-report@v2",
+    "security-report@v1",
+    "release-checklist@v1",
+    "engineering-summary@v1"
+  ],
+  "changeRequests": []
+}

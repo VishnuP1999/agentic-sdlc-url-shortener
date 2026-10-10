@@ -1,0 +1,29 @@
+Agents: deterministic rule-based (no model calls).
+Validation: OFFLINE (--no-exec). Proposals are NOT built or tested; results are marked unverified.
+==============================================================================
+SCENARIO: safe-stop  -  Governance failure path. The implementation agent leaks a credential; the critical security policy rolls the output back and safe-stops the whole run before anything is released.
+Requirement: Build a URL shortener service that creates and redirects short links and rate limits link creation.
+------------------------------------------------------------------------------
+Run run-20261009-161820-3a7214: SafeStopped (Critical policy violation at 'implementation': [SEC-001-no-secrets] Possible hard-coded secret in artifact 'changeset@v1'.)
+  node            state               attempts  ms       last error
+  requirements    Succeeded           1         42       
+  design          Succeeded           1         34       
+  implementation  SafeStopped         1         52       Possible hard-coded secret in artifact 'changeset@v1'.
+  tests           Skipped             0         0        
+  docs            Cancelled           0         2        
+  security        Skipped             0         0        
+  release         Skipped             0         0        
+  Metrics:
+    node success rate     29% (2/7)
+    attempt success rate  67% (2/3)
+    retries / rollbacks / fallbacks   0 / 1 / 0
+    re-plans / approvals / clarifications   0 / 0 / 0  (plan v1)
+    MTTR                  n/a (no failures)
+    end-to-end latency    180 ms
+    model calls           0 (deterministic agents)
+  Audit entries: 30, hash chain VALID
+
+  Output written to: docs/sample-runs/safe-stop\run-20261009-161820-3a7214
+  Expected status SafeStopped: MATCH
+==============================================================================
+All scenarios behaved as expected.

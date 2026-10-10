@@ -1,0 +1,17 @@
+{
+  "name": "brownfield",
+  "kind": "brownfield",
+  "description": "Enhancement of the existing service. Shows codebase impact analysis, a schema-change approval gate, a full re-plan from the design after reviewer feedback, and fallback to a template docs agent after retries are exhausted.",
+  "requirement": "Enhance the existing service: let link owners extend the expiry of an existing short link and show the remaining time in the stats response.",
+  "expectedStatus": "Completed",
+  "approvals": [
+    "approve",
+    "request_changes:design:Add audit logging for expiry changes",
+    "approve",
+    "approve"
+  ],
+  "clarifications": [],
+  "faults": [
+    { "node": "docs", "mode": "exception", "failTimes": 99 }
+  ]
+}

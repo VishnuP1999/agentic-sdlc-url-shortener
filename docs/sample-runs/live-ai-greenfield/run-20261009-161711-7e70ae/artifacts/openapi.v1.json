@@ -1,0 +1,136 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "URL Shortener API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/urls": {
+      "post": {
+        "summary": "Create short link with url, optional alias and expiresAt; returns code, shortUrl, expiresAt, ownerToken; Location header to /api/urls/{code}",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/r/{code}": {
+      "get": {
+        "summary": "302 redirect to target for active, unexpired link; records click",
+        "responses": {
+          "302": {
+            "description": "Redirect"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "410": {
+            "description": "Gone"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}": {
+      "get": {
+        "summary": "Link metadata (code, targetUrl, createdAt, expiresAt, isExpired, isActive); no owner token",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deactivate link using bearer owner token",
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "401": {
+            "description": "Response"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}/analytics": {
+      "get": {
+        "summary": "totalClicks, lastClickAt, clicks per UTC day",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Liveness check",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{code}": {
+      "get": {
+        "summary": "Existing legacy redirect, behaviour preserved",
+        "responses": {
+          "302": {
+            "description": "Redirect"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "410": {
+            "description": "Gone"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}/stats": {
+      "get": {
+        "summary": "Existing legacy stats, behaviour preserved",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    }
+  },
+  "x-security-controls": [
+    "url-scheme-allowlist",
+    "ssrf-block",
+    "input-limits",
+    "rate-limit",
+    "owner-token-hashing",
+    "constant-time-token-compare",
+    "secure-random-codes",
+    "no-personal-data-in-analytics"
+  ]
+}

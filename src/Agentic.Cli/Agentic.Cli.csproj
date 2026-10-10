@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Agentic.Core\Agentic.Core.csproj" />
+    <ProjectReference Include="..\Agentic.Agents\Agentic.Agents.csproj" />
+    <ProjectReference Include="..\Agentic.Model\Agentic.Model.csproj" />
+  </ItemGroup>
+
+</Project>

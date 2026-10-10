@@ -1,0 +1,15 @@
+flowchart TD
+    requirements["requirements<br/>[planner, fallback]"]
+    design["design<br/>[planner, approval, fallback]"]
+    implementation["implementation<br/>[developer, fallback, validation]"]
+    tests["tests<br/>[tester, fallback, validation]"]
+    docs["docs<br/>[documentation, fallback]"]
+    security["security<br/>[security]"]
+    release["release<br/>[release, approval]"]
+    requirements --> design
+    design --> implementation
+    implementation --> tests
+    design --> docs
+    tests --> security
+    docs --> security
+    security --> release

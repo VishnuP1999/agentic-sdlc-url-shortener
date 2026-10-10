@@ -1,0 +1,265 @@
+[
+  {
+    "at": "2026-10-09T16:17:32.4253438+00:00",
+    "nodeId": "requirements",
+    "actor": "human",
+    "decision": "clarification provided",
+    "rationale": "How is an owner identified for deactivation: a secret token returned at creation, an API key/authenticated user, or something else? =\u003E  | How is a client identified for rate limiting: remote IP address, API key, or another identifier? And what limit (requests per window) do you want? =\u003E  | Must links and analytics survive restarts (durable database) or is in-memory storage acceptable? =\u003E ",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "at": "2026-10-09T16:18:04.6803197+00:00",
+    "nodeId": "requirements",
+    "actor": "agent:AiRequirementsAgent",
+    "decision": "9 functional requirement(s), 5 non-functional, 8 assumption(s)",
+    "rationale": "Interpret intent, find ambiguity, normalise into an engineering problem",
+    "inputs": [
+      "requirement@v1"
+    ],
+    "outputs": [
+      "requirement@v2"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:18:39.9386313+00:00",
+    "nodeId": "design",
+    "actor": "agent:AiArchitectAgent",
+    "decision": "8 endpoint(s), 10 component(s), 8 control(s), 7 task(s), 14 impacted file(s)",
+    "rationale": "Architecture, API surface, data model, controls, impact analysis and task decomposition",
+    "inputs": [
+      "requirement@v2"
+    ],
+    "outputs": [
+      "design@v1",
+      "plan@v1"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:19:34.6454643+00:00",
+    "nodeId": "docs",
+    "actor": "agent:AiDocsAgent",
+    "decision": "8 endpoint(s) documented, 9874 characters",
+    "rationale": "API documentation from the design",
+    "inputs": [
+      "design@v1",
+      "plan@v1",
+      "requirement@v2"
+    ],
+    "outputs": [
+      "api-docs@v1"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:19:59.5662716+00:00",
+    "nodeId": "implementation",
+    "actor": "agent:AiDeveloperAgent",
+    "decision": "7 file(s) proposed (0 new), 7 already satisfied, 7 compatibility risk(s)",
+    "rationale": "Proposed code changes, change-set, OpenAPI contract and schema; validated by a sandbox build and test run",
+    "inputs": [
+      "design@v1",
+      "plan@v1",
+      "requirement@v2"
+    ],
+    "outputs": [
+      "changeset@v1",
+      "proposed-changes@v1",
+      "openapi@v1",
+      "schema@v1",
+      "validation-report@v1"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:21:55.4503426+00:00",
+    "nodeId": "tests",
+    "actor": "agent:AiTesterAgent",
+    "decision": "19 test case(s) designed, 1 test file(s) proposed, 6 edge case(s) identified",
+    "rationale": "Test plan and proposed tests; the real suite (with proposed code and tests) decides pass/fail",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "requirement@v2",
+      "schema@v1",
+      "validation-report@v1"
+    ],
+    "outputs": [
+      "test-plan@v1",
+      "proposed-tests@v1",
+      "test-report@v1",
+      "validation-report@v2"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:21:55.5315199+00:00",
+    "nodeId": "security",
+    "actor": "agent:SecurityAgent",
+    "decision": "8 control(s) verified, 1 warning(s)",
+    "rationale": "Policy guardrails: security, compliance, change control",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "proposed-tests@v1",
+      "requirement@v2",
+      "schema@v1",
+      "test-plan@v1",
+      "test-report@v1",
+      "validation-report@v2"
+    ],
+    "outputs": [
+      "security-report@v1"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:21:55.5662634+00:00",
+    "nodeId": "release",
+    "actor": "human:scripted-reviewer",
+    "decision": "changes-requested",
+    "rationale": "Document the rate limit response and Retry-After header",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "proposed-tests@v1",
+      "requirement@v2",
+      "schema@v1",
+      "security-report@v1",
+      "test-plan@v1",
+      "test-report@v1",
+      "validation-report@v2"
+    ],
+    "outputs": []
+  },
+  {
+    "at": "2026-10-09T16:21:55.646812+00:00",
+    "nodeId": "release",
+    "actor": "engine",
+    "decision": "re-plan",
+    "rationale": "plan v2; target=docs; note=Document the rate limit response and Retry-After header; re-run=[docs, release, security]; preserved=[requirements, design, implementation, tests]",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "proposed-tests@v1",
+      "requirement@v2",
+      "schema@v1",
+      "security-report@v1",
+      "test-plan@v1",
+      "test-report@v1",
+      "validation-report@v2"
+    ],
+    "outputs": []
+  },
+  {
+    "at": "2026-10-09T16:22:21.3668458+00:00",
+    "nodeId": "docs",
+    "actor": "agent:AiDocsAgent",
+    "decision": "8 endpoint(s) documented, 8670 characters",
+    "rationale": "API documentation from the design",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "proposed-tests@v1",
+      "requirement@v2",
+      "schema@v1",
+      "security-report@v1",
+      "test-plan@v1",
+      "test-report@v1",
+      "validation-report@v2"
+    ],
+    "outputs": [
+      "api-docs@v2"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:22:21.4285051+00:00",
+    "nodeId": "security",
+    "actor": "agent:SecurityAgent",
+    "decision": "8 control(s) verified, 1 warning(s)",
+    "rationale": "Policy guardrails: security, compliance, change control",
+    "inputs": [
+      "api-docs@v2",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "proposed-tests@v1",
+      "requirement@v2",
+      "schema@v1",
+      "security-report@v1",
+      "test-plan@v1",
+      "test-report@v1",
+      "validation-report@v2"
+    ],
+    "outputs": [
+      "security-report@v2"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:22:21.4556651+00:00",
+    "nodeId": "release",
+    "actor": "human:scripted-reviewer",
+    "decision": "approved",
+    "rationale": "Release is a high-impact action and needs explicit human approval",
+    "inputs": [
+      "api-docs@v2",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "proposed-tests@v1",
+      "requirement@v2",
+      "schema@v1",
+      "security-report@v2",
+      "test-plan@v1",
+      "test-report@v1",
+      "validation-report@v2"
+    ],
+    "outputs": []
+  },
+  {
+    "at": "2026-10-09T16:22:21.4968466+00:00",
+    "nodeId": "release",
+    "actor": "agent:ReleaseAgent",
+    "decision": "10/10 checklist item(s) satisfied",
+    "rationale": "Release readiness checklist and final engineering summary",
+    "inputs": [
+      "api-docs@v2",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "proposed-tests@v1",
+      "requirement@v2",
+      "schema@v1",
+      "security-report@v2",
+      "test-plan@v1",
+      "test-report@v1",
+      "validation-report@v2"
+    ],
+    "outputs": [
+      "release-checklist@v1",
+      "engineering-summary@v1"
+    ]
+  }
+]

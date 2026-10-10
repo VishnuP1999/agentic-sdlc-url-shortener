@@ -1,0 +1,30 @@
+Agents: AI (claude-code:sonnet via C:\Users\vishn\.vscode\extensions\anthropic.claude-code-2.1.295-win32-x64\resources\native-binary\claude.exe); rule-based agents are the fallback.
+Validation: proposals are built and the real test suite is run in a throw-away sandbox.
+==============================================================================
+SCENARIO: greenfield  -  New system. Shows full decomposition, parallel build/test/docs, a transient failure recovered by retry+rollback, and a partial re-plan (docs only) after a reviewer comment.
+Requirement: Build a URL shortener service: create short links with optional custom aliases and expiry, redirect them, track click analytics per link, let owners deactivate links, and rate limit link creation per client. Block unsafe or private-network target URLs.
+------------------------------------------------------------------------------
+Run run-20261009-160554-66d336: Failed (Node 'tests' failed after bounded retries: agent error: model output rejected: requirements without a positive and a negative/edge case: FR-5, FR-6, FR-9)
+  node            state               attempts  ms       last error
+  requirements    Succeeded           2         38922    
+  design          Succeeded           1         32502    
+  implementation  Succeeded           3         111153   
+  tests           Failed              3         383861   agent error: model output rejected: requirements without a positive and a negative/edge case: FR-5, FR-6, FR-9
+  docs            Succeeded           1         27064    
+  security        Blocked             0         0        
+  release         Blocked             0         0        
+  Metrics:
+    node success rate     57% (4/7)
+    attempt success rate  50% (5/10)
+    retries / rollbacks / fallbacks   4 / 5 / 0
+    re-plans / approvals / clarifications   0 / 0 / 1  (plan v1)
+    MTTR                  111124.5 ms over 1 recovery(ies)
+    end-to-end latency    566584 ms
+    model calls           9 (3 failed), tokens in/out 145007/100843, cost $1.4344
+  Audit entries: 76, hash chain VALID
+
+  Output written to: C:\Users\vishn\Downloads\AgenticSdlc\AgenticSdlc\out\run-20261009-160554-66d336
+  Expected status Completed: MISMATCH
+==============================================================================
+1 scenario(s) did not match the expected outcome.
+exit=1

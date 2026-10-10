@@ -1,0 +1,27 @@
+[
+  {
+    "at": "2026-10-09T16:18:20.2085769+00:00",
+    "nodeId": "requirements",
+    "actor": "agent:RequirementsAgent",
+    "decision": "3 functional requirement(s), 0 non-functional, 2 assumption(s)",
+    "rationale": "Interpret intent, find ambiguity, normalise into an engineering problem",
+    "inputs": [],
+    "outputs": [
+      "requirement@v1"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:18:20.244509+00:00",
+    "nodeId": "design",
+    "actor": "agent:ArchitectAgent",
+    "decision": "3 endpoint(s), 5 component(s), 4 control(s), 7 planned task(s)",
+    "rationale": "Architecture, API surface, data model, controls, impact analysis and task decomposition",
+    "inputs": [
+      "requirement@v1"
+    ],
+    "outputs": [
+      "design@v1",
+      "plan@v1"
+    ]
+  }
+]

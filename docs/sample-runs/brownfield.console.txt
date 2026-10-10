@@ -1,0 +1,29 @@
+Agents: deterministic rule-based (no model calls).
+Validation: OFFLINE (--no-exec). Proposals are NOT built or tested; results are marked unverified.
+==============================================================================
+SCENARIO: brownfield  -  Enhancement of the existing service. Shows codebase impact analysis, a schema-change approval gate, a full re-plan from the design after reviewer feedback, and fallback to a template docs agent after retries are exhausted.
+Requirement: Enhance the existing service: let link owners extend the expiry of an existing short link and show the remaining time in the stats response.
+------------------------------------------------------------------------------
+Run run-20261009-161813-fd5f6e: Completed
+  node            state               attempts  ms       last error
+  requirements    Succeeded           1         48       
+  design          Succeeded           2         153      
+  implementation  Succeeded           2         55       
+  tests           Succeeded           2         29       
+  docs            Succeeded           8         386      
+  security        Succeeded           2         27       
+  release         Succeeded           1         20       
+  Metrics:
+    node success rate     100% (7/7)
+    attempt success rate  67% (12/18)
+    retries / rollbacks / fallbacks   4 / 6 / 2
+    re-plans / approvals / clarifications   1 / 4 / 0  (plan v2)
+    MTTR                  189.6 ms over 2 recovery(ies)
+    end-to-end latency    834 ms
+    model calls           0 (deterministic agents)
+  Audit entries: 130, hash chain VALID
+
+  Output written to: docs/sample-runs/brownfield\run-20261009-161813-fd5f6e
+  Expected status Completed: MATCH
+==============================================================================
+All scenarios behaved as expected.

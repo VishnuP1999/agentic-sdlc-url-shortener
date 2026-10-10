@@ -1,0 +1,169 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "URL Shortener API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/urls/{code}/extend": {
+      "post": {
+        "summary": "Owner extends expiry by additionalSeconds (FR-1, FR-2). Body {additionalSeconds}. Returns {code, expiresAt, remainingSeconds}. Expired-but-active links are revived from now.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}/expiry": {
+      "put": {
+        "summary": "Canonical alias of the extend operation, same handler, body and responses.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}/analytics": {
+      "get": {
+        "summary": "Existing stats plus additive remainingSeconds (long, null if no expiry, 0 if expired) (FR-3).",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}/stats": {
+      "get": {
+        "summary": "Backward-compatible alias of analytics; same response including remainingSeconds.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}": {
+      "get": {
+        "summary": "Metadata; reflects updated expiresAt after extend (FR-4).",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deactivate unchanged (204/403/404).",
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/r/{code}": {
+      "get": {
+        "summary": "Redirect unchanged; works again after extending an expired link (FR-2, FR-4).",
+        "responses": {
+          "302": {
+            "description": "Redirect"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "410": {
+            "description": "Gone"
+          }
+        }
+      }
+    },
+    "/api/urls": {
+      "post": {
+        "summary": "Create unchanged.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health unchanged.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "x-security-controls": [
+    "url-scheme-allowlist",
+    "ssrf-block",
+    "input-limits",
+    "rate-limit",
+    "audit-logging",
+    "owner-authorization",
+    "optimistic-concurrency"
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "runId": "run-20261009-160554-66d336",
+  "status": "Failed",
+  "stopReason": "Node \u0027tests\u0027 failed after bounded retries: agent error: model output rejected: requirements without a positive and a negative/edge case: FR-5, FR-6, FR-9",
+  "startedAt": "2026-10-09T16:05:54.526142+00:00",
+  "finishedAt": "2026-10-09T16:15:21.1152062+00:00",
+  "planVersion": 1,
+  "auditChainValid": true,
+  "metrics": {
+    "attemptsTotal": 10,
+    "attemptsSucceeded": 5,
+    "attemptSuccessRate": 0.5,
+    "nodesTotal": 7,
+    "nodesSucceeded": 4,
+    "nodeSuccessRate": 0.571,
+    "retries": 4,
+    "rollbacks": 5,
+    "fallbacks": 0,
+    "replans": 0,
+    "approvals": 0,
+    "clarifications": 1,
+    "recoveries": 1,
+    "mttrMs": 111124.5,
+    "endToEndMs": 566584,
+    "perNode": [
+      {
+        "nodeId": "design",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 32487
+      },
+      {
+        "nodeId": "docs",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 27048
+      },
+      {
+        "nodeId": "implementation",
+        "attempts": 3,
+        "failures": 2,
+        "retries": 2,
+        "rollbacks": 2,
+        "totalMs": 110930
+      },
+      {
+        "nodeId": "requirements",
+        "attempts": 2,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 38885
+      },
+      {
+        "nodeId": "tests",
+        "attempts": 3,
+        "failures": 3,
+        "retries": 2,
+        "rollbacks": 3,
+        "totalMs": 383599
+      }
+    ],
+    "modelCalls": 9,
+    "modelCallFailures": 3,
+    "modelInputTokens": 145007,
+    "modelOutputTokens": 100843,
+    "modelCostUsd": 1.4344
+  },
+  "nodes": [
+    {
+      "id": "requirements",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 38922,
+      "lastError": null
+    },
+    {
+      "id": "design",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 32502,
+      "lastError": null
+    },
+    {
+      "id": "implementation",
+      "state": "Succeeded",
+      "attempts": 3,
+      "durationMs": 111153,
+      "lastError": null
+    },
+    {
+      "id": "tests",
+      "state": "Failed",
+      "attempts": 3,
+      "durationMs": 383861,
+      "lastError": "agent error: model output rejected: requirements without a positive and a negative/edge case: FR-5, FR-6, FR-9"
+    },
+    {
+      "id": "docs",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 27064,
+      "lastError": null
+    },
+    {
+      "id": "security",
+      "state": "Blocked",
+      "attempts": 0,
+      "durationMs": 0,
+      "lastError": null
+    },
+    {
+      "id": "release",
+      "state": "Blocked",
+      "attempts": 0,
+      "durationMs": 0,
+      "lastError": null
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "changeset",
+      "version": 2,
+      "hash": "5b8f59eb94caf190a33a494e72263510e6fc46520fefbe1c94be1faa2a9920ed",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "design",
+      "version": 1,
+      "hash": "cdf2661e8cd6bf95b8cae6fcb3083bc5a12007b43f8cef0e71f105b32216d60a",
+      "producedBy": "AiArchitectAgent"
+    },
+    {
+      "name": "openapi",
+      "version": 2,
+      "hash": "e522992213e3860aa4363d2b02fd74f5dfe14a546de9b3409bf3b6d9a5d4c2a4",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "plan",
+      "version": 1,
+      "hash": "54eec22f402881de58f90124c064bd5f512b168ed17866ddc74a1278aafb3d8f",
+      "producedBy": "AiArchitectAgent"
+    },
+    {
+      "name": "proposed-changes",
+      "version": 2,
+      "hash": "8411b2408c7fff4cd5a2c72c47c601953f66df91806dc1b4381fa056448ea741",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "requirement",
+      "version": 2,
+      "hash": "3a7b76a06bd6e335d5519fca662d2a3175b16c4a903a4e19c9a0805e133675df",
+      "producedBy": "AiRequirementsAgent"
+    },
+    {
+      "name": "schema",
+      "version": 2,
+      "hash": "81b44c7b7aac701e4a0cf746db7e53e15ce67d2a77db60e2bda569d1e59a90a9",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "validation-report",
+      "version": 2,
+      "hash": "967628f5f28710ef64970e8780e405c647140a63285191d26ceec3794a1c1f48",
+      "producedBy": "orchestrator:sandbox"
+    }
+  ],
+  "artifactVersionsProduced": [
+    "requirement@v1",
+    "requirement@v2",
+    "design@v1",
+    "plan@v1",
+    "api-docs@v1",
+    "changeset@v1",
+    "proposed-changes@v1",
+    "openapi@v1",
+    "schema@v1",
+    "validation-report@v1",
+    "changeset@v2",
+    "proposed-changes@v2",
+    "openapi@v2",
+    "schema@v2",
+    "validation-report@v2"
+  ],
+  "changeRequests": []
+}

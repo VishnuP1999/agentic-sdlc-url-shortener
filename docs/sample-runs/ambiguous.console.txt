@@ -1,0 +1,29 @@
+Agents: deterministic rule-based (no model calls).
+Validation: OFFLINE (--no-exec). Proposals are NOT built or tested; results are marked unverified.
+==============================================================================
+SCENARIO: ambiguous  -  Vague requirement. The requirements stage detects ambiguity, pauses for human clarification, records the answers as explicit assumptions and then continues.
+Requirement: Make our links safer and faster.
+------------------------------------------------------------------------------
+Run run-20261010-100252-36051a: Completed
+  node            state               attempts  ms       last error
+  requirements    Succeeded           2         74       
+  design          Succeeded           1         35       
+  implementation  Succeeded           1         61       
+  tests           Succeeded           1         24       
+  docs            Succeeded           1         13       
+  security        Succeeded           1         26       
+  release         Succeeded           1         29       
+  Metrics:
+    node success rate     100% (7/7)
+    attempt success rate  100% (8/8)
+    retries / rollbacks / fallbacks   0 / 0 / 0
+    re-plans / approvals / clarifications   0 / 1 / 1  (plan v1)
+    MTTR                  n/a (no failures)
+    end-to-end latency    368 ms
+    model calls           0 (deterministic agents)
+  Audit entries: 57, hash chain VALID
+
+  Output written to: docs/sample-runs/ambiguous\run-20261010-100252-36051a
+  Expected status Completed: MATCH
+==============================================================================
+All scenarios behaved as expected.

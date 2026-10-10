@@ -1,0 +1,57 @@
+# CI + SIT pipeline. The same scripts run on any CI server (Azure DevOps, Jenkins, GitLab): only the triggers and
+# the JUnit publishing step are CI-specific.
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:        # manual SIT run with real AI agents
+  schedule:
+    - cron: "0 2 * * *"     # nightly SIT run with real AI agents
+
+jobs:
+  # Every change: deterministic agents, real builds and tests, no model cost, no secrets needed.
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Build, unit tests, acceptance (rule-based agents)
+        run: AGENTS=rules bash ./run-tests.sh
+      - name: Publish reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-rules
+          path: TestResults/
+
+  # SIT: real Claude agents end to end. Needs the ANTHROPIC_API_KEY secret; Claude Code reads it from the environment.
+  sit-ai:
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CLAUDE_MODEL: sonnet
+      CLAUDE_MAX_BUDGET_USD: "1.00"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Build, unit tests, acceptance (AI agents required)
+        run: AGENTS=ai REQUIRE_AI=1 bash ./run-tests.sh
+      - name: Publish reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-ai
+          path: TestResults/

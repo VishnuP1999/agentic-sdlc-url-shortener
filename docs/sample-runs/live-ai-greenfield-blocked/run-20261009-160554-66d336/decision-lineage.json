@@ -1,0 +1,90 @@
+[
+  {
+    "at": "2026-10-09T16:06:15.8641904+00:00",
+    "nodeId": "requirements",
+    "actor": "human",
+    "decision": "clarification provided",
+    "rationale": "How should a link owner be identified: a one-time owner token returned on creation (assumed), or authenticated user accounts/API keys? =\u003E  | What identifies a \u0027client\u0027 for rate limiting: remote IP address (assumed, ignoring forwarded headers unless configured), or an API key/user identity? =\u003E  | Besides blocking literal private/loopback IPs and localhost, must hostnames that DNS-resolve to private addresses also be blocked (requires DNS lookup at creation and possibly at redirect)? =\u003E ",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "at": "2026-10-09T16:06:33.4794567+00:00",
+    "nodeId": "requirements",
+    "actor": "agent:AiRequirementsAgent",
+    "decision": "9 functional requirement(s), 4 non-functional, 8 assumption(s)",
+    "rationale": "Interpret intent, find ambiguity, normalise into an engineering problem",
+    "inputs": [
+      "requirement@v1"
+    ],
+    "outputs": [
+      "requirement@v2"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:07:06.0166046+00:00",
+    "nodeId": "design",
+    "actor": "agent:AiArchitectAgent",
+    "decision": "8 endpoint(s), 11 component(s), 7 control(s), 7 task(s), 14 impacted file(s)",
+    "rationale": "Architecture, API surface, data model, controls, impact analysis and task decomposition",
+    "inputs": [
+      "requirement@v2"
+    ],
+    "outputs": [
+      "design@v1",
+      "plan@v1"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:07:33.1395428+00:00",
+    "nodeId": "docs",
+    "actor": "agent:AiDocsAgent",
+    "decision": "8 endpoint(s) documented, 9355 characters",
+    "rationale": "API documentation from the design",
+    "inputs": [
+      "design@v1",
+      "plan@v1",
+      "requirement@v2"
+    ],
+    "outputs": [
+      "api-docs@v1"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:08:57.188221+00:00",
+    "nodeId": "implementation",
+    "actor": "agent:AiDeveloperAgent",
+    "decision": "0 file(s) proposed (0 new), 6 already satisfied, 5 compatibility risk(s)",
+    "rationale": "Proposed code changes, change-set, OpenAPI contract and schema; validated by a sandbox build and test run",
+    "inputs": [
+      "design@v1",
+      "plan@v1",
+      "requirement@v2"
+    ],
+    "outputs": [
+      "changeset@v2",
+      "proposed-changes@v2",
+      "openapi@v2",
+      "schema@v2",
+      "validation-report@v2"
+    ]
+  },
+  {
+    "at": "2026-10-09T16:15:21.0512589+00:00",
+    "nodeId": "security",
+    "actor": "engine",
+    "decision": "blocked",
+    "rationale": "dependency \u0027tests\u0027 failed; blocked (no override decision recorded)",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "at": "2026-10-09T16:15:21.0627523+00:00",
+    "nodeId": "release",
+    "actor": "engine",
+    "decision": "blocked",
+    "rationale": "dependency \u0027tests\u0027 failed; blocked (no override decision recorded)",
+    "inputs": [],
+    "outputs": []
+  }
+]

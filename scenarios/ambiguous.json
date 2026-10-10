@@ -1,0 +1,15 @@
+{
+  "name": "ambiguous",
+  "kind": "greenfield",
+  "description": "Vague requirement. The requirements stage detects ambiguity, pauses for human clarification, records the answers as explicit assumptions and then continues.",
+  "requirement": "Make our links safer and faster.",
+  "expectedStatus": "Completed",
+  "approvals": [
+    "approve"
+  ],
+  "clarifications": [
+    "safe,malicious,phishing,malware,blocklist,threat,abuse=>Block malicious and private-network target URLs and rate limit abusive clients; links must also support expiry.",
+    "fast,latency,p95,performance,throughput,speed=>p95 redirect latency under 50 ms at 500 req/s; click analytics must be recorded asynchronously."
+  ],
+  "faults": []
+}

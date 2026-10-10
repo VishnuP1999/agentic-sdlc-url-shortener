@@ -1,0 +1,180 @@
+{
+  "runId": "run-20261009-161813-fd5f6e",
+  "status": "Completed",
+  "stopReason": null,
+  "planVersion": 2,
+  "startedAt": "2026-10-09T16:18:13.6094469+00:00",
+  "updatedAt": "2026-10-09T16:18:14.4345136+00:00",
+  "nodes": [
+    {
+      "id": "requirements",
+      "role": "planner",
+      "state": "Succeeded",
+      "attempts": 1,
+      "lastError": null,
+      "dependsOn": []
+    },
+    {
+      "id": "design",
+      "role": "planner",
+      "state": "Succeeded",
+      "attempts": 2,
+      "lastError": null,
+      "dependsOn": [
+        "requirements"
+      ]
+    },
+    {
+      "id": "implementation",
+      "role": "developer",
+      "state": "Succeeded",
+      "attempts": 2,
+      "lastError": null,
+      "dependsOn": [
+        "design"
+      ]
+    },
+    {
+      "id": "tests",
+      "role": "tester",
+      "state": "Succeeded",
+      "attempts": 2,
+      "lastError": null,
+      "dependsOn": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "docs",
+      "role": "documentation",
+      "state": "Succeeded",
+      "attempts": 8,
+      "lastError": null,
+      "dependsOn": [
+        "design"
+      ]
+    },
+    {
+      "id": "security",
+      "role": "security",
+      "state": "Succeeded",
+      "attempts": 2,
+      "lastError": null,
+      "dependsOn": [
+        "tests",
+        "docs"
+      ]
+    },
+    {
+      "id": "release",
+      "role": "release",
+      "state": "Succeeded",
+      "attempts": 1,
+      "lastError": null,
+      "dependsOn": [
+        "security"
+      ]
+    }
+  ],
+  "approvals": [
+    {
+      "at": "2026-10-09T16:18:13.7877115+00:00",
+      "nodeId": "design",
+      "actor": "human:scripted-reviewer",
+      "decision": "approved",
+      "rationale": "Schema change requires human approval (change control)",
+      "inputs": [
+        "design@v1",
+        "plan@v1",
+        "requirement@v1"
+      ],
+      "outputs": []
+    },
+    {
+      "at": "2026-10-09T16:18:14.0976931+00:00",
+      "nodeId": "release",
+      "actor": "human:scripted-reviewer",
+      "decision": "changes-requested",
+      "rationale": "Add audit logging for expiry changes",
+      "inputs": [
+        "api-docs@v1",
+        "changeset@v1",
+        "design@v1",
+        "openapi@v1",
+        "plan@v1",
+        "proposed-changes@v1",
+        "requirement@v1",
+        "schema@v1",
+        "security-report@v1",
+        "test-plan@v1",
+        "test-report@v1"
+      ],
+      "outputs": []
+    },
+    {
+      "at": "2026-10-09T16:18:14.1752362+00:00",
+      "nodeId": "design",
+      "actor": "human:scripted-reviewer",
+      "decision": "approved",
+      "rationale": "Schema change requires human approval (change control)",
+      "inputs": [
+        "api-docs@v1",
+        "changeset@v1",
+        "design@v2",
+        "openapi@v1",
+        "plan@v2",
+        "proposed-changes@v1",
+        "requirement@v1",
+        "schema@v1",
+        "security-report@v1",
+        "test-plan@v1",
+        "test-report@v1"
+      ],
+      "outputs": []
+    },
+    {
+      "at": "2026-10-09T16:18:14.4196678+00:00",
+      "nodeId": "release",
+      "actor": "human:scripted-reviewer",
+      "decision": "approved",
+      "rationale": "Release is a high-impact action and needs explicit human approval",
+      "inputs": [
+        "api-docs@v2",
+        "changeset@v2",
+        "design@v2",
+        "openapi@v2",
+        "plan@v2",
+        "proposed-changes@v2",
+        "requirement@v1",
+        "schema@v2",
+        "security-report@v2",
+        "test-plan@v2",
+        "test-report@v2"
+      ],
+      "outputs": []
+    }
+  ],
+  "changeRequests": [
+    {
+      "targetNode": "design",
+      "note": "Add audit logging for expiry changes",
+      "requestedBy": "human:scripted-reviewer",
+      "at": "2026-10-09T16:18:14.0998271+00:00"
+    }
+  ],
+  "artifactVersions": [
+    "api-docs@v2",
+    "changeset@v2",
+    "design@v2",
+    "engineering-summary@v1",
+    "openapi@v2",
+    "plan@v2",
+    "proposed-changes@v2",
+    "release-checklist@v1",
+    "requirement@v1",
+    "schema@v2",
+    "security-report@v2",
+    "test-plan@v2",
+    "test-report@v2"
+  ]
+}

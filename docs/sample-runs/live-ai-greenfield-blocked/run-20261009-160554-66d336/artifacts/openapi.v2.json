@@ -1,0 +1,135 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "URL Shortener API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/urls": {
+      "post": {
+        "summary": "Create short link with optional alias and expiry; returns code, shortUrl, expiresAt, ownerToken and Location header",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/r/{code}": {
+      "get": {
+        "summary": "Redirect (302) to target; counts click on success only",
+        "responses": {
+          "302": {
+            "description": "Redirect"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "410": {
+            "description": "Gone"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}": {
+      "get": {
+        "summary": "Link metadata (no token or hash)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Soft-deactivate link using X-Owner-Token; idempotent",
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "401": {
+            "description": "Response"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}/analytics": {
+      "get": {
+        "summary": "totalClicks and lastClickedAt",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{code}": {
+      "get": {
+        "summary": "Existing legacy redirect, kept working",
+        "responses": {
+          "302": {
+            "description": "Redirect"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "410": {
+            "description": "Gone"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}/stats": {
+      "get": {
+        "summary": "Existing legacy stats route, kept working",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    }
+  },
+  "x-security-controls": [
+    "url-scheme-allowlist",
+    "ssrf-block",
+    "input-limits",
+    "rate-limit",
+    "owner-token-hashing-constant-time-compare",
+    "no-token-in-responses-or-logs",
+    "forwarded-headers-ignored-by-default"
+  ]
+}

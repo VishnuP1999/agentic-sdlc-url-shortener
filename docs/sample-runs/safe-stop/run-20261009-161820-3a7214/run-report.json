@@ -1,0 +1,138 @@
+{
+  "runId": "run-20261009-161820-3a7214",
+  "status": "SafeStopped",
+  "stopReason": "Critical policy violation at \u0027implementation\u0027: [SEC-001-no-secrets] Possible hard-coded secret in artifact \u0027changeset@v1\u0027.",
+  "startedAt": "2026-10-09T16:18:20.1398639+00:00",
+  "finishedAt": "2026-10-09T16:18:20.3205576+00:00",
+  "planVersion": 1,
+  "auditChainValid": true,
+  "metrics": {
+    "attemptsTotal": 3,
+    "attemptsSucceeded": 2,
+    "attemptSuccessRate": 0.667,
+    "nodesTotal": 7,
+    "nodesSucceeded": 2,
+    "nodeSuccessRate": 0.286,
+    "retries": 0,
+    "rollbacks": 1,
+    "fallbacks": 0,
+    "replans": 0,
+    "approvals": 0,
+    "clarifications": 0,
+    "recoveries": 0,
+    "mttrMs": null,
+    "endToEndMs": 180,
+    "perNode": [
+      {
+        "nodeId": "design",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 28
+      },
+      {
+        "nodeId": "implementation",
+        "attempts": 1,
+        "failures": 1,
+        "retries": 0,
+        "rollbacks": 1,
+        "totalMs": 46
+      },
+      {
+        "nodeId": "requirements",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 33
+      }
+    ],
+    "modelCalls": 0,
+    "modelCallFailures": 0,
+    "modelInputTokens": 0,
+    "modelOutputTokens": 0,
+    "modelCostUsd": 0
+  },
+  "nodes": [
+    {
+      "id": "requirements",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 42,
+      "lastError": null
+    },
+    {
+      "id": "design",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 34,
+      "lastError": null
+    },
+    {
+      "id": "implementation",
+      "state": "SafeStopped",
+      "attempts": 1,
+      "durationMs": 52,
+      "lastError": "Possible hard-coded secret in artifact \u0027changeset@v1\u0027."
+    },
+    {
+      "id": "tests",
+      "state": "Skipped",
+      "attempts": 0,
+      "durationMs": 0,
+      "lastError": null
+    },
+    {
+      "id": "docs",
+      "state": "Cancelled",
+      "attempts": 0,
+      "durationMs": 2,
+      "lastError": null
+    },
+    {
+      "id": "security",
+      "state": "Skipped",
+      "attempts": 0,
+      "durationMs": 0,
+      "lastError": null
+    },
+    {
+      "id": "release",
+      "state": "Skipped",
+      "attempts": 0,
+      "durationMs": 0,
+      "lastError": null
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "design",
+      "version": 1,
+      "hash": "cde5359028771a26fd3facc3ede7443dd8e66a032f2ae6cf4a96cc735d87423d",
+      "producedBy": "ArchitectAgent"
+    },
+    {
+      "name": "plan",
+      "version": 1,
+      "hash": "51327c9ef75266de40024dd9984b247cabc141341e61eec510230637ac99b79c",
+      "producedBy": "ArchitectAgent"
+    },
+    {
+      "name": "requirement",
+      "version": 1,
+      "hash": "0ab032edb8f6b98c8609c21a702bf751986d0ec21b6ca6c295144fe6e21c4dd3",
+      "producedBy": "RequirementsAgent"
+    }
+  ],
+  "artifactVersionsProduced": [
+    "requirement@v1",
+    "design@v1",
+    "plan@v1",
+    "changeset@v1",
+    "proposed-changes@v1",
+    "openapi@v1",
+    "schema@v1"
+  ],
+  "changeRequests": []
+}

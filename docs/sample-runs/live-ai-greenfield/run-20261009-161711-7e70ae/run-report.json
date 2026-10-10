@@ -1,0 +1,261 @@
+{
+  "runId": "run-20261009-161711-7e70ae",
+  "status": "Completed",
+  "stopReason": null,
+  "startedAt": "2026-10-09T16:17:11.7344185+00:00",
+  "finishedAt": "2026-10-09T16:22:21.5356679+00:00",
+  "planVersion": 2,
+  "auditChainValid": true,
+  "metrics": {
+    "attemptsTotal": 12,
+    "attemptsSucceeded": 10,
+    "attemptSuccessRate": 0.833,
+    "nodesTotal": 7,
+    "nodesSucceeded": 7,
+    "nodeSuccessRate": 1,
+    "retries": 2,
+    "rollbacks": 2,
+    "fallbacks": 0,
+    "replans": 1,
+    "approvals": 2,
+    "clarifications": 1,
+    "recoveries": 2,
+    "mttrMs": 70660.5,
+    "endToEndMs": 309797,
+    "perNode": [
+      {
+        "nodeId": "design",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 35222
+      },
+      {
+        "nodeId": "docs",
+        "attempts": 2,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 80313
+      },
+      {
+        "nodeId": "implementation",
+        "attempts": 2,
+        "failures": 1,
+        "retries": 1,
+        "rollbacks": 1,
+        "totalMs": 79467
+      },
+      {
+        "nodeId": "release",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 25
+      },
+      {
+        "nodeId": "requirements",
+        "attempts": 2,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 52902
+      },
+      {
+        "nodeId": "security",
+        "attempts": 2,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 80
+      },
+      {
+        "nodeId": "tests",
+        "attempts": 2,
+        "failures": 1,
+        "retries": 1,
+        "rollbacks": 1,
+        "totalMs": 115787
+      }
+    ],
+    "modelCalls": 8,
+    "modelCallFailures": 1,
+    "modelInputTokens": 92607,
+    "modelOutputTokens": 46985,
+    "modelCostUsd": 0.8081
+  },
+  "nodes": [
+    {
+      "id": "requirements",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 52938,
+      "lastError": null
+    },
+    {
+      "id": "design",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 35245,
+      "lastError": null
+    },
+    {
+      "id": "implementation",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 79605,
+      "lastError": null
+    },
+    {
+      "id": "tests",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 115880,
+      "lastError": null
+    },
+    {
+      "id": "docs",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 80537,
+      "lastError": null
+    },
+    {
+      "id": "security",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 126,
+      "lastError": null
+    },
+    {
+      "id": "release",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 95,
+      "lastError": null
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "api-docs",
+      "version": 2,
+      "hash": "37c4a697102b4e8f723cdfe71d9c252f79ed579828bf05a092cd288aa86b5f22",
+      "producedBy": "AiDocsAgent"
+    },
+    {
+      "name": "changeset",
+      "version": 1,
+      "hash": "651473f6925bebca0947edb71a4971856e399136610f44e314137593729731b6",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "design",
+      "version": 1,
+      "hash": "76d2b75ee61191f2335e04b100dadde776e1f20781d93d644e6a061ff2e3c3f5",
+      "producedBy": "AiArchitectAgent"
+    },
+    {
+      "name": "engineering-summary",
+      "version": 1,
+      "hash": "e0eee84e19125412d95b54f1b6e734ace96b35e608c6cefd37985e6d7b82c01b",
+      "producedBy": "ReleaseAgent"
+    },
+    {
+      "name": "openapi",
+      "version": 1,
+      "hash": "eaae356d9b11168ca223b6cd40f6c3eeb937737ae1501892a0453b495246b7ec",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "plan",
+      "version": 1,
+      "hash": "107e5ada07061c20f45e0e3a6fe9365bf8317c942fda8459fb1c7563b8e93ceb",
+      "producedBy": "AiArchitectAgent"
+    },
+    {
+      "name": "proposed-changes",
+      "version": 1,
+      "hash": "70cb9c0a7aee9bdecd0bbbcaa4c0cdd99f06bee00863341670404bcec676b8f9",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "proposed-tests",
+      "version": 1,
+      "hash": "5151f080fb5c5693d803003bff63b8f325878a32fbcdfe0e1b0548769a8ed546",
+      "producedBy": "AiTesterAgent"
+    },
+    {
+      "name": "release-checklist",
+      "version": 1,
+      "hash": "a572a36a12863cccdad49efb750d006fa809034ba7db4ff9823a18e2c7f30c56",
+      "producedBy": "ReleaseAgent"
+    },
+    {
+      "name": "requirement",
+      "version": 2,
+      "hash": "dd25de644b374b2f6374bedf7d6fd9aa06f780813421703d192722509bba60b7",
+      "producedBy": "AiRequirementsAgent"
+    },
+    {
+      "name": "schema",
+      "version": 1,
+      "hash": "3db9cf0fba3d9b5efa6c6171e95d6f153d15f8c5a3aa591c2fa8216f87381c0e",
+      "producedBy": "AiDeveloperAgent"
+    },
+    {
+      "name": "security-report",
+      "version": 2,
+      "hash": "9dc07e6ddca82a51a3fd184346a3ede2cdfc1f1314d516aa315e8749b085576a",
+      "producedBy": "SecurityAgent"
+    },
+    {
+      "name": "test-plan",
+      "version": 1,
+      "hash": "344bd25abfa8765ab937f9578013415642de1e078f014eafb92bf042505d117e",
+      "producedBy": "AiTesterAgent"
+    },
+    {
+      "name": "test-report",
+      "version": 1,
+      "hash": "57efc1d3abc6f005ff0be8f996cd62ced60514c5fdca2f014468d7fd6f3805ec",
+      "producedBy": "orchestrator:sandbox"
+    },
+    {
+      "name": "validation-report",
+      "version": 2,
+      "hash": "66d76b8c9b938fcab9d2414e9dab33e237809b8642c3f44f79c39a4182d7c2c0",
+      "producedBy": "orchestrator:sandbox"
+    }
+  ],
+  "artifactVersionsProduced": [
+    "requirement@v1",
+    "requirement@v2",
+    "design@v1",
+    "plan@v1",
+    "api-docs@v1",
+    "changeset@v1",
+    "proposed-changes@v1",
+    "openapi@v1",
+    "schema@v1",
+    "validation-report@v1",
+    "test-plan@v1",
+    "proposed-tests@v1",
+    "test-report@v1",
+    "validation-report@v2",
+    "security-report@v1",
+    "api-docs@v2",
+    "security-report@v2",
+    "release-checklist@v1",
+    "engineering-summary@v1"
+  ],
+  "changeRequests": [
+    {
+      "targetNode": "docs",
+      "note": "Document the rate limit response and Retry-After header",
+      "requestedBy": "human:scripted-reviewer",
+      "at": "2026-10-09T16:21:55.5892049+00:00"
+    }
+  ]
+}

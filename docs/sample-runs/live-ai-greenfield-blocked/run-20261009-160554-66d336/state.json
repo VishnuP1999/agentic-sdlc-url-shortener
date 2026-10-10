@@ -1,0 +1,91 @@
+{
+  "runId": "run-20261009-160554-66d336",
+  "status": "Failed",
+  "stopReason": "Node \u0027tests\u0027 failed after bounded retries: agent error: model output rejected: requirements without a positive and a negative/edge case: FR-5, FR-6, FR-9",
+  "planVersion": 1,
+  "startedAt": "2026-10-09T16:05:54.526142+00:00",
+  "updatedAt": "2026-10-09T16:15:21.0736527+00:00",
+  "nodes": [
+    {
+      "id": "requirements",
+      "role": "planner",
+      "state": "Succeeded",
+      "attempts": 2,
+      "lastError": null,
+      "dependsOn": []
+    },
+    {
+      "id": "design",
+      "role": "planner",
+      "state": "Succeeded",
+      "attempts": 1,
+      "lastError": null,
+      "dependsOn": [
+        "requirements"
+      ]
+    },
+    {
+      "id": "implementation",
+      "role": "developer",
+      "state": "Succeeded",
+      "attempts": 3,
+      "lastError": null,
+      "dependsOn": [
+        "design"
+      ]
+    },
+    {
+      "id": "tests",
+      "role": "tester",
+      "state": "Failed",
+      "attempts": 3,
+      "lastError": "agent error: model output rejected: requirements without a positive and a negative/edge case: FR-5, FR-6, FR-9",
+      "dependsOn": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "docs",
+      "role": "documentation",
+      "state": "Succeeded",
+      "attempts": 1,
+      "lastError": null,
+      "dependsOn": [
+        "design"
+      ]
+    },
+    {
+      "id": "security",
+      "role": "security",
+      "state": "Blocked",
+      "attempts": 0,
+      "lastError": null,
+      "dependsOn": [
+        "tests",
+        "docs"
+      ]
+    },
+    {
+      "id": "release",
+      "role": "release",
+      "state": "Blocked",
+      "attempts": 0,
+      "lastError": null,
+      "dependsOn": [
+        "security"
+      ]
+    }
+  ],
+  "approvals": [],
+  "changeRequests": [],
+  "artifactVersions": [
+    "changeset@v2",
+    "design@v1",
+    "openapi@v2",
+    "plan@v1",
+    "proposed-changes@v2",
+    "requirement@v2",
+    "schema@v2",
+    "validation-report@v2"
+  ]
+}

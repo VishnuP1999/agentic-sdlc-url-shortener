@@ -1,0 +1,163 @@
+[
+  {
+    "at": "2026-10-10T10:02:52.6100286+00:00",
+    "nodeId": "requirements",
+    "actor": "human",
+    "decision": "clarification provided",
+    "rationale": "What does \u0027safer\u0027 mean here: which threats must be mitigated (malicious targets, abuse/spam, link tampering) and against which standard? =\u003E Block malicious and private-network target URLs and rate limit abusive clients; links must also support expiry. | What latency target defines \u0027faster\u0027 (for example p95 redirect latency) and under what load? =\u003E p95 redirect latency under 50 ms at 500 req/s; click analytics must be recorded asynchronously.",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "at": "2026-10-10T10:02:52.620005+00:00",
+    "nodeId": "requirements",
+    "actor": "agent:RequirementsAgent",
+    "decision": "6 functional requirement(s), 2 non-functional, 4 assumption(s)",
+    "rationale": "Interpret intent, find ambiguity, normalise into an engineering problem",
+    "inputs": [
+      "requirement@v1"
+    ],
+    "outputs": [
+      "requirement@v2"
+    ]
+  },
+  {
+    "at": "2026-10-10T10:02:52.6985437+00:00",
+    "nodeId": "design",
+    "actor": "agent:ArchitectAgent",
+    "decision": "4 endpoint(s), 8 component(s), 4 control(s), 13 planned task(s)",
+    "rationale": "Architecture, API surface, data model, controls, impact analysis and task decomposition",
+    "inputs": [
+      "requirement@v2"
+    ],
+    "outputs": [
+      "design@v1",
+      "plan@v1"
+    ]
+  },
+  {
+    "at": "2026-10-10T10:02:52.7640763+00:00",
+    "nodeId": "implementation",
+    "actor": "agent:ImplementationAgent",
+    "decision": "15 planned path(s) (0 new, 15 existing/modified), OpenAPI with 4 operation(s)",
+    "rationale": "Proposed code changes, change-set, OpenAPI contract and schema; validated by a sandbox build and test run",
+    "inputs": [
+      "design@v1",
+      "plan@v1",
+      "requirement@v2"
+    ],
+    "outputs": [
+      "changeset@v1",
+      "proposed-changes@v1",
+      "openapi@v1",
+      "schema@v1"
+    ]
+  },
+  {
+    "at": "2026-10-10T10:02:52.7768209+00:00",
+    "nodeId": "docs",
+    "actor": "agent:DocsAgent",
+    "decision": "4 endpoint(s) documented",
+    "rationale": "API documentation from the design",
+    "inputs": [
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "requirement@v2",
+      "schema@v1"
+    ],
+    "outputs": [
+      "api-docs@v1"
+    ]
+  },
+  {
+    "at": "2026-10-10T10:02:52.8032351+00:00",
+    "nodeId": "tests",
+    "actor": "agent:TestAgent",
+    "decision": "25 test case(s) planned; coverage complete=True",
+    "rationale": "Test plan and proposed tests; the real suite (with proposed code and tests) decides pass/fail",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "requirement@v2",
+      "schema@v1"
+    ],
+    "outputs": [
+      "test-plan@v1",
+      "test-report@v1"
+    ]
+  },
+  {
+    "at": "2026-10-10T10:02:52.831909+00:00",
+    "nodeId": "security",
+    "actor": "agent:SecurityAgent",
+    "decision": "4 control(s) verified, 0 warning(s)",
+    "rationale": "Policy guardrails: security, compliance, change control",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "requirement@v2",
+      "schema@v1",
+      "test-plan@v1",
+      "test-report@v1"
+    ],
+    "outputs": [
+      "security-report@v1"
+    ]
+  },
+  {
+    "at": "2026-10-10T10:02:52.8432464+00:00",
+    "nodeId": "release",
+    "actor": "human:scripted-reviewer",
+    "decision": "approved",
+    "rationale": "Release is a high-impact action and needs explicit human approval",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "requirement@v2",
+      "schema@v1",
+      "security-report@v1",
+      "test-plan@v1",
+      "test-report@v1"
+    ],
+    "outputs": []
+  },
+  {
+    "at": "2026-10-10T10:02:52.862989+00:00",
+    "nodeId": "release",
+    "actor": "agent:ReleaseAgent",
+    "decision": "10/10 checklist item(s) satisfied",
+    "rationale": "Release readiness checklist and final engineering summary",
+    "inputs": [
+      "api-docs@v1",
+      "changeset@v1",
+      "design@v1",
+      "openapi@v1",
+      "plan@v1",
+      "proposed-changes@v1",
+      "requirement@v2",
+      "schema@v1",
+      "security-report@v1",
+      "test-plan@v1",
+      "test-report@v1"
+    ],
+    "outputs": [
+      "release-checklist@v1",
+      "engineering-summary@v1"
+    ]
+  }
+]

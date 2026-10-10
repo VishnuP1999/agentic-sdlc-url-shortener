@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="..\..\src\Agentic.Core\Agentic.Core.csproj" />
+    <ProjectReference Include="..\..\src\Agentic.Model\Agentic.Model.csproj" />
+    <ProjectReference Include="..\..\src\Agentic.Agents\Agentic.Agents.csproj" />
+    <ProjectReference Include="..\..\src\UrlShortener.Api\UrlShortener.Api.csproj" />
+  </ItemGroup>
+
+</Project>

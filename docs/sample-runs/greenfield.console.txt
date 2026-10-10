@@ -1,0 +1,29 @@
+Agents: deterministic rule-based (no model calls).
+Validation: OFFLINE (--no-exec). Proposals are NOT built or tested; results are marked unverified.
+==============================================================================
+SCENARIO: greenfield  -  New system. Shows full decomposition, parallel build/test/docs, a transient failure recovered by retry+rollback, and a partial re-plan (docs only) after a reviewer comment.
+Requirement: Build a URL shortener service: create short links with optional custom aliases and expiry, redirect them, track click analytics per link, let owners deactivate links, and rate limit link creation per client. Block unsafe or private-network target URLs.
+------------------------------------------------------------------------------
+Run run-20261009-161810-4ed5fe: Completed
+  node            state               attempts  ms       last error
+  requirements    Succeeded           1         39       
+  design          Succeeded           1         31       
+  implementation  Succeeded           2         144      
+  tests           Succeeded           1         15       
+  docs            Succeeded           2         20       
+  security        Succeeded           2         25       
+  release         Succeeded           1         20       
+  Metrics:
+    node success rate     100% (7/7)
+    attempt success rate  90% (9/10)
+    retries / rollbacks / fallbacks   1 / 1 / 0
+    re-plans / approvals / clarifications   1 / 2 / 0  (plan v2)
+    MTTR                  127.2 ms over 1 recovery(ies)
+    end-to-end latency    371 ms
+    model calls           0 (deterministic agents)
+  Audit entries: 76, hash chain VALID
+
+  Output written to: docs/sample-runs/greenfield\run-20261009-161810-4ed5fe
+  Expected status Completed: MATCH
+==============================================================================
+All scenarios behaved as expected.

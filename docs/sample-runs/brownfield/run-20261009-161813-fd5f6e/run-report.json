@@ -1,0 +1,253 @@
+{
+  "runId": "run-20261009-161813-fd5f6e",
+  "status": "Completed",
+  "stopReason": null,
+  "startedAt": "2026-10-09T16:18:13.6094469+00:00",
+  "finishedAt": "2026-10-09T16:18:14.442178+00:00",
+  "planVersion": 2,
+  "auditChainValid": true,
+  "metrics": {
+    "attemptsTotal": 18,
+    "attemptsSucceeded": 12,
+    "attemptSuccessRate": 0.667,
+    "nodesTotal": 7,
+    "nodesSucceeded": 7,
+    "nodeSuccessRate": 1,
+    "retries": 4,
+    "rollbacks": 6,
+    "fallbacks": 2,
+    "replans": 1,
+    "approvals": 4,
+    "clarifications": 0,
+    "recoveries": 2,
+    "mttrMs": 189.6,
+    "endToEndMs": 834,
+    "perNode": [
+      {
+        "nodeId": "design",
+        "attempts": 2,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 75
+      },
+      {
+        "nodeId": "docs",
+        "attempts": 8,
+        "failures": 6,
+        "retries": 4,
+        "rollbacks": 6,
+        "totalMs": 15
+      },
+      {
+        "nodeId": "implementation",
+        "attempts": 2,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 42
+      },
+      {
+        "nodeId": "release",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 9
+      },
+      {
+        "nodeId": "requirements",
+        "attempts": 1,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 41
+      },
+      {
+        "nodeId": "security",
+        "attempts": 2,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 21
+      },
+      {
+        "nodeId": "tests",
+        "attempts": 2,
+        "failures": 0,
+        "retries": 0,
+        "rollbacks": 0,
+        "totalMs": 20
+      }
+    ],
+    "modelCalls": 0,
+    "modelCallFailures": 0,
+    "modelInputTokens": 0,
+    "modelOutputTokens": 0,
+    "modelCostUsd": 0
+  },
+  "nodes": [
+    {
+      "id": "requirements",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 48,
+      "lastError": null
+    },
+    {
+      "id": "design",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 153,
+      "lastError": null
+    },
+    {
+      "id": "implementation",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 55,
+      "lastError": null
+    },
+    {
+      "id": "tests",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 29,
+      "lastError": null
+    },
+    {
+      "id": "docs",
+      "state": "Succeeded",
+      "attempts": 8,
+      "durationMs": 386,
+      "lastError": null
+    },
+    {
+      "id": "security",
+      "state": "Succeeded",
+      "attempts": 2,
+      "durationMs": 27,
+      "lastError": null
+    },
+    {
+      "id": "release",
+      "state": "Succeeded",
+      "attempts": 1,
+      "durationMs": 20,
+      "lastError": null
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "api-docs",
+      "version": 2,
+      "hash": "a20024a491b08f58dabfd48bc7457d6a603c60c330e853afb25f20864b53bc66",
+      "producedBy": "MinimalDocsAgent"
+    },
+    {
+      "name": "changeset",
+      "version": 2,
+      "hash": "2bd4d9da463cd61d3f3daf59d14652becb04f5993f383826ae9ed62f7cee88f3",
+      "producedBy": "ImplementationAgent"
+    },
+    {
+      "name": "design",
+      "version": 2,
+      "hash": "e79c7fc3ef9089a5450aad190ef422709a9737b586dc45a8fa920274077f2a36",
+      "producedBy": "ArchitectAgent"
+    },
+    {
+      "name": "engineering-summary",
+      "version": 1,
+      "hash": "3e9b5ceb922be0063ab5e76e3b2f198dbc459f310da3cb894fc7a10b0cdd12f4",
+      "producedBy": "ReleaseAgent"
+    },
+    {
+      "name": "openapi",
+      "version": 2,
+      "hash": "969aa8073493dc6936ca53ea66449f11a4646da25474040d74541363cdac836d",
+      "producedBy": "ImplementationAgent"
+    },
+    {
+      "name": "plan",
+      "version": 2,
+      "hash": "4275db60d86d77c891209149502d3365f178eecd93e148894cff329b078a1738",
+      "producedBy": "ArchitectAgent"
+    },
+    {
+      "name": "proposed-changes",
+      "version": 2,
+      "hash": "2e30f63e19ad745440f791bc30c38aad42671b0d0c1a72a3184f436b9bee7181",
+      "producedBy": "ImplementationAgent"
+    },
+    {
+      "name": "release-checklist",
+      "version": 1,
+      "hash": "e647500608e1a0de09802154cf4eeb073db1dbcdb99571b961065ad3d68bcae0",
+      "producedBy": "ReleaseAgent"
+    },
+    {
+      "name": "requirement",
+      "version": 1,
+      "hash": "f0b09b6538c60fb2c4ac3081994807915e0346db0c11b67fb1522c8235615a97",
+      "producedBy": "RequirementsAgent"
+    },
+    {
+      "name": "schema",
+      "version": 2,
+      "hash": "a513b54bdf4ea215ef1e0c7151986d535c06cb245e4cad3242c33c2b5fe9365c",
+      "producedBy": "ImplementationAgent"
+    },
+    {
+      "name": "security-report",
+      "version": 2,
+      "hash": "14fdb782fec23f743e07bfad9850910e0ca1a7583e8147592b732d3d0871d2bb",
+      "producedBy": "SecurityAgent"
+    },
+    {
+      "name": "test-plan",
+      "version": 2,
+      "hash": "d7d21bb421d2e7f4f498f94e2ae5bdb7eb370d46fa6302adcfc28dffe70a5091",
+      "producedBy": "TestAgent"
+    },
+    {
+      "name": "test-report",
+      "version": 2,
+      "hash": "7d98ad60514d2a56d62c729be82d462fa5e003a451fc1ad27776725ff48b03b9",
+      "producedBy": "orchestrator:sandbox"
+    }
+  ],
+  "artifactVersionsProduced": [
+    "requirement@v1",
+    "design@v1",
+    "plan@v1",
+    "changeset@v1",
+    "proposed-changes@v1",
+    "openapi@v1",
+    "schema@v1",
+    "api-docs@v1",
+    "test-plan@v1",
+    "test-report@v1",
+    "security-report@v1",
+    "design@v2",
+    "plan@v2",
+    "changeset@v2",
+    "proposed-changes@v2",
+    "openapi@v2",
+    "schema@v2",
+    "api-docs@v2",
+    "test-plan@v2",
+    "test-report@v2",
+    "security-report@v2",
+    "release-checklist@v1",
+    "engineering-summary@v1"
+  ],
+  "changeRequests": [
+    {
+      "targetNode": "design",
+      "note": "Add audit logging for expiry changes",
+      "requestedBy": "human:scripted-reviewer",
+      "at": "2026-10-09T16:18:14.0998271+00:00"
+    }
+  ]
+}

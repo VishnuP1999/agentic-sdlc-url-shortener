@@ -1,0 +1,31 @@
+Agents: AI (claude-code:sonnet via C:\Users\vishn\.vscode\extensions\anthropic.claude-code-2.1.295-win32-x64\resources\native-binary\claude.exe); rule-based agents are the fallback.
+Validation: proposals are built and the real test suite is run in a throw-away sandbox.
+==============================================================================
+SCENARIO: greenfield  -  New system. Shows full decomposition, parallel build/test/docs, a transient failure recovered by retry+rollback, and a partial re-plan (docs only) after a reviewer comment.
+Requirement: Build a URL shortener service: create short links with optional custom aliases and expiry, redirect them, track click analytics per link, let owners deactivate links, and rate limit link creation per client. Block unsafe or private-network target URLs.
+------------------------------------------------------------------------------
+Run run-20261009-161711-7e70ae: Completed
+  node            state               attempts  ms       last error
+  requirements    Succeeded           2         52938    
+  design          Succeeded           1         35245    
+  implementation  Succeeded           2         79605    
+  tests           Succeeded           2         115880   
+  docs            Succeeded           2         80537    
+  security        Succeeded           2         126      
+  release         Succeeded           1         95       
+  Metrics:
+    node success rate     100% (7/7)
+    attempt success rate  83% (10/12)
+    retries / rollbacks / fallbacks   2 / 2 / 0
+    re-plans / approvals / clarifications   1 / 2 / 1  (plan v2)
+    MTTR                  70660.5 ms over 2 recovery(ies)
+    end-to-end latency    309797 ms
+    model calls           8 (1 failed), tokens in/out 92607/46985, cost $0.8081
+  Audit entries: 97, hash chain VALID
+
+  Output written to: C:\Users\vishn\Downloads\AgenticSdlc\AgenticSdlc\out\run-20261009-161711-7e70ae
+  8 proposed file(s) exported for review to: C:\Users\vishn\Downloads\AgenticSdlc\AgenticSdlc\out\run-20261009-161711-7e70ae\proposed (not applied)
+  Expected status Completed: MATCH
+==============================================================================
+All scenarios behaved as expected.
+exit=0

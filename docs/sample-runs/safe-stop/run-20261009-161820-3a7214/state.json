@@ -1,0 +1,86 @@
+{
+  "runId": "run-20261009-161820-3a7214",
+  "status": "SafeStopped",
+  "stopReason": "Critical policy violation at \u0027implementation\u0027: [SEC-001-no-secrets] Possible hard-coded secret in artifact \u0027changeset@v1\u0027.",
+  "planVersion": 1,
+  "startedAt": "2026-10-09T16:18:20.1398639+00:00",
+  "updatedAt": "2026-10-09T16:18:20.3129444+00:00",
+  "nodes": [
+    {
+      "id": "requirements",
+      "role": "planner",
+      "state": "Succeeded",
+      "attempts": 1,
+      "lastError": null,
+      "dependsOn": []
+    },
+    {
+      "id": "design",
+      "role": "planner",
+      "state": "Succeeded",
+      "attempts": 1,
+      "lastError": null,
+      "dependsOn": [
+        "requirements"
+      ]
+    },
+    {
+      "id": "implementation",
+      "role": "developer",
+      "state": "SafeStopped",
+      "attempts": 1,
+      "lastError": "Possible hard-coded secret in artifact \u0027changeset@v1\u0027.",
+      "dependsOn": [
+        "design"
+      ]
+    },
+    {
+      "id": "tests",
+      "role": "tester",
+      "state": "Skipped",
+      "attempts": 0,
+      "lastError": null,
+      "dependsOn": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "docs",
+      "role": "documentation",
+      "state": "Cancelled",
+      "attempts": 0,
+      "lastError": null,
+      "dependsOn": [
+        "design"
+      ]
+    },
+    {
+      "id": "security",
+      "role": "security",
+      "state": "Skipped",
+      "attempts": 0,
+      "lastError": null,
+      "dependsOn": [
+        "tests",
+        "docs"
+      ]
+    },
+    {
+      "id": "release",
+      "role": "release",
+      "state": "Skipped",
+      "attempts": 0,
+      "lastError": null,
+      "dependsOn": [
+        "security"
+      ]
+    }
+  ],
+  "approvals": [],
+  "changeRequests": [],
+  "artifactVersions": [
+    "design@v1",
+    "plan@v1",
+    "requirement@v1"
+  ]
+}

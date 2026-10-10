@@ -1,0 +1,76 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "URL Shortener API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/urls": {
+      "post": {
+        "summary": "Create a short link",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/{code}": {
+      "get": {
+        "summary": "Redirect to the target URL",
+        "responses": {
+          "302": {
+            "description": "Redirect"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "410": {
+            "description": "Gone"
+          }
+        }
+      }
+    },
+    "/api/urls/{code}/stats": {
+      "get": {
+        "summary": "Click analytics for a link",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Liveness probe",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "x-security-controls": [
+    "url-scheme-allowlist",
+    "ssrf-block",
+    "input-limits",
+    "rate-limit"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "greenfield",
+  "kind": "greenfield",
+  "description": "New system. Shows full decomposition, parallel build/test/docs, a transient failure recovered by retry+rollback, and a partial re-plan (docs only) after a reviewer comment.",
+  "requirement": "Build a URL shortener service: create short links with optional custom aliases and expiry, redirect them, track click analytics per link, let owners deactivate links, and rate limit link creation per client. Block unsafe or private-network target URLs.",
+  "expectedStatus": "Completed",
+  "approvals": [
+    "request_changes:docs:Document the rate limit response and Retry-After header",
+    "approve"
+  ],
+  "clarifications": [],
+  "faults": [
+    { "node": "implementation", "mode": "exception", "failTimes": 1 }
+  ]
+}

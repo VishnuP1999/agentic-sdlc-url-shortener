@@ -1,0 +1,1 @@
+{"passed":true,"controlsVerified":["url-scheme-allowlist","ssrf-block","input-limits","rate-limit"],"findings":[{"policyId":"CMP-001-no-pii","severity":"Warning","message":"Artifact \u0027proposed-tests@v1\u0027 contains an email address.","nodeId":"security"}]}

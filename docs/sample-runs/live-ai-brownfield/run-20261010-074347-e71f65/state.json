@@ -1,0 +1,188 @@
+{
+  "runId": "run-20261010-074347-e71f65",
+  "status": "Completed",
+  "stopReason": null,
+  "planVersion": 2,
+  "startedAt": "2026-10-10T07:43:47.9181569+00:00",
+  "updatedAt": "2026-10-10T07:53:32.266532+00:00",
+  "nodes": [
+    {
+      "id": "requirements",
+      "role": "planner",
+      "state": "Succeeded",
+      "attempts": 2,
+      "lastError": null,
+      "dependsOn": []
+    },
+    {
+      "id": "design",
+      "role": "planner",
+      "state": "Succeeded",
+      "attempts": 4,
+      "lastError": null,
+      "dependsOn": [
+        "requirements"
+      ]
+    },
+    {
+      "id": "implementation",
+      "role": "developer",
+      "state": "Succeeded",
+      "attempts": 2,
+      "lastError": null,
+      "dependsOn": [
+        "design"
+      ]
+    },
+    {
+      "id": "tests",
+      "role": "tester",
+      "state": "Succeeded",
+      "attempts": 4,
+      "lastError": null,
+      "dependsOn": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "docs",
+      "role": "documentation",
+      "state": "Succeeded",
+      "attempts": 10,
+      "lastError": null,
+      "dependsOn": [
+        "design"
+      ]
+    },
+    {
+      "id": "security",
+      "role": "security",
+      "state": "Succeeded",
+      "attempts": 2,
+      "lastError": null,
+      "dependsOn": [
+        "tests",
+        "docs"
+      ]
+    },
+    {
+      "id": "release",
+      "role": "release",
+      "state": "Succeeded",
+      "attempts": 1,
+      "lastError": null,
+      "dependsOn": [
+        "security"
+      ]
+    }
+  ],
+  "approvals": [
+    {
+      "at": "2026-10-10T07:46:38.2280029+00:00",
+      "nodeId": "design",
+      "actor": "human:scripted-reviewer",
+      "decision": "approved",
+      "rationale": "Schema change requires human approval (change control)",
+      "inputs": [
+        "design@v3",
+        "plan@v3",
+        "requirement@v2"
+      ],
+      "outputs": []
+    },
+    {
+      "at": "2026-10-10T07:49:35.2491288+00:00",
+      "nodeId": "release",
+      "actor": "human:scripted-reviewer",
+      "decision": "changes-requested",
+      "rationale": "Add audit logging for expiry changes",
+      "inputs": [
+        "api-docs@v1",
+        "changeset@v1",
+        "design@v3",
+        "openapi@v1",
+        "plan@v3",
+        "proposed-changes@v1",
+        "proposed-tests@v2",
+        "requirement@v2",
+        "schema@v1",
+        "security-report@v1",
+        "test-plan@v2",
+        "test-report@v2",
+        "validation-report@v3"
+      ],
+      "outputs": []
+    },
+    {
+      "at": "2026-10-10T07:50:18.1966124+00:00",
+      "nodeId": "design",
+      "actor": "human:scripted-reviewer",
+      "decision": "approved",
+      "rationale": "Schema change requires human approval (change control)",
+      "inputs": [
+        "api-docs@v1",
+        "changeset@v1",
+        "design@v4",
+        "openapi@v1",
+        "plan@v4",
+        "proposed-changes@v1",
+        "proposed-tests@v2",
+        "requirement@v2",
+        "schema@v1",
+        "security-report@v1",
+        "test-plan@v2",
+        "test-report@v2",
+        "validation-report@v3"
+      ],
+      "outputs": []
+    },
+    {
+      "at": "2026-10-10T07:53:32.213358+00:00",
+      "nodeId": "release",
+      "actor": "human:scripted-reviewer",
+      "decision": "approved",
+      "rationale": "Release is a high-impact action and needs explicit human approval",
+      "inputs": [
+        "api-docs@v2",
+        "changeset@v2",
+        "design@v4",
+        "openapi@v2",
+        "plan@v4",
+        "proposed-changes@v2",
+        "proposed-tests@v4",
+        "requirement@v2",
+        "schema@v2",
+        "security-report@v2",
+        "test-plan@v4",
+        "test-report@v4",
+        "validation-report@v6"
+      ],
+      "outputs": []
+    }
+  ],
+  "changeRequests": [
+    {
+      "targetNode": "design",
+      "note": "Add audit logging for expiry changes",
+      "requestedBy": "human:scripted-reviewer",
+      "at": "2026-10-10T07:49:35.2565039+00:00"
+    }
+  ],
+  "artifactVersions": [
+    "api-docs@v2",
+    "changeset@v2",
+    "design@v4",
+    "engineering-summary@v1",
+    "openapi@v2",
+    "plan@v4",
+    "proposed-changes@v2",
+    "proposed-tests@v4",
+    "release-checklist@v1",
+    "requirement@v2",
+    "schema@v2",
+    "security-report@v2",
+    "test-plan@v4",
+    "test-report@v4",
+    "validation-report@v6"
+  ]
+}

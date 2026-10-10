@@ -1,0 +1,86 @@
+[
+  {
+    "at": "2026-10-10T10:04:21.7142046+00:00",
+    "nodeId": "requirements",
+    "role": "planner",
+    "model": "claude-sonnet-5-5",
+    "outcome": "ok",
+    "durationMs": 10759,
+    "inputTokens": 2238,
+    "outputTokens": 1416,
+    "costUsd": 0.0146112,
+    "error": null
+  },
+  {
+    "at": "2026-10-10T10:04:35.5481026+00:00",
+    "nodeId": "requirements",
+    "role": "planner",
+    "model": "claude-sonnet-5-5",
+    "outcome": "ok",
+    "durationMs": 11963,
+    "inputTokens": 2447,
+    "outputTokens": 1630,
+    "costUsd": 0.020308,
+    "error": null
+  },
+  {
+    "at": "2026-10-10T10:04:49.4702073+00:00",
+    "nodeId": "requirements",
+    "role": "planner",
+    "model": "claude-sonnet-5-5",
+    "outcome": "ok",
+    "durationMs": 12230,
+    "inputTokens": 2560,
+    "outputTokens": 1701,
+    "costUsd": 0.02147,
+    "error": null
+  },
+  {
+    "at": "2026-10-10T10:05:03.5805316+00:00",
+    "nodeId": "design",
+    "role": "planner",
+    "model": "claude-sonnet-5-5",
+    "outcome": "ok",
+    "durationMs": 26638,
+    "inputTokens": 5855,
+    "outputTokens": 4248,
+    "costUsd": 0.0579084,
+    "error": null
+  },
+  {
+    "at": "2026-10-10T10:05:32.3080045+00:00",
+    "nodeId": "docs",
+    "role": "documentation",
+    "model": "claude-sonnet-5-5",
+    "outcome": "ok",
+    "durationMs": 24578,
+    "inputTokens": 9092,
+    "outputTokens": 3728,
+    "costUsd": 0.06992,
+    "error": null
+  },
+  {
+    "at": "2026-10-10T10:05:32.2836383+00:00",
+    "nodeId": "implementation",
+    "role": "developer",
+    "model": "claude-sonnet-5-5",
+    "outcome": "ok",
+    "durationMs": 70205,
+    "inputTokens": 21236,
+    "outputTokens": 14055,
+    "costUsd": 0.22049680000000002,
+    "error": null
+  },
+  {
+    "at": "2026-10-10T10:07:16.0722936+00:00",
+    "nodeId": "tests",
+    "role": "tester",
+    "model": "claude-sonnet-5-5",
+    "outcome": "ok",
+    "durationMs": 39292,
+    "inputTokens": 21120,
+    "outputTokens": 7005,
+    "costUsd": 0.1485486,
+    "error": null
+  }
+]

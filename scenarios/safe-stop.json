@@ -1,0 +1,14 @@
+{
+  "name": "safe-stop",
+  "kind": "greenfield",
+  "description": "Governance failure path. The implementation agent leaks a credential; the critical security policy rolls the output back and safe-stops the whole run before anything is released.",
+  "requirement": "Build a URL shortener service that creates and redirects short links and rate limits link creation.",
+  "expectedStatus": "SafeStopped",
+  "approvals": [
+    "approve"
+  ],
+  "clarifications": [],
+  "faults": [
+    { "node": "implementation", "mode": "secret", "failTimes": 1 }
+  ]
+}
