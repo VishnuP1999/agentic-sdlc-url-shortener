@@ -26,7 +26,7 @@ One command. It runs everything by itself and never asks for input. Pick **one**
 
 **What it does** (both options):
 1. Builds the solution.
-2. Runs 37 product tests and 69 engine tests.
+2. Runs 37 product tests and 70 engine tests.
 3. Runs the greenfield, brownfield, ambiguous and safe-stop scenarios end to end and checks their evidence.
 4. Starts the URL shortener and checks it automatically with a test link (shorten → redirect → analytics).
 
@@ -179,7 +179,7 @@ Individual suites:
 
 ```bash
 dotnet run --project tests/UrlShortener.Tests   # product: unit + in-process HTTP integration tests (37)
-dotnet run --project tests/Agentic.Tests        # engine, state machine, AI agents (fake model), adapter, sandbox, scenarios (69)
+dotnet run --project tests/Agentic.Tests        # engine, state machine, AI agents (fake model), adapter, sandbox, scenarios (70)
 dotnet run --project tests/Agentic.Tests -- Sandbox   # optional name filter
 dotnet run --project tests/Agentic.Acceptance -- --agents rules   # acceptance suite only
 ```

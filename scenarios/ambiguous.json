@@ -5,7 +5,8 @@
   "requirement": "Make our links safer and faster.",
   "expectedStatus": "Completed",
   "approvals": [
-    "approve"
+    "design=>approve",
+    "release=>approve"
   ],
   "clarifications": [
     "safe,malicious,phishing,malware,blocklist,threat,abuse=>Block malicious and private-network target URLs and rate limit abusive clients; links must also support expiry.",

@@ -19,25 +19,36 @@ public interface IHumanInteraction
 
 /// <summary>
 /// Plays back pre-recorded human decisions (used by scenarios and tests).
-/// Safe default: when the script runs out of approval decisions, the request is rejected.
-/// Script syntax: "approve" | "reject[:note]" | "request_changes:&lt;targetNode&gt;:&lt;note&gt;".
+/// Safe default: when the script has no decision for a request, the request is rejected.
+/// Script syntax: "[node=&gt;]approve" | "[node=&gt;]reject[:note]" | "[node=&gt;]request_changes:&lt;targetNode&gt;:&lt;note&gt;".
+/// A decision prefixed with a node id ("release=&gt;approve") is only used for that node's approval, so the script
+/// does not depend on which approvals happen to be requested (e.g. an AI design may or may not change the schema).
+/// Unprefixed decisions are used in order for any node.
 /// </summary>
 public sealed class ScriptedHuman : IHumanInteraction
 {
-    private readonly Queue<string> _approvals;
+    private readonly List<string> _approvals;
     private readonly Queue<string> _answers;
     private readonly object _gate = new();
 
     public ScriptedHuman(IEnumerable<string>? approvals = null, IEnumerable<string>? clarificationAnswers = null)
     {
-        _approvals = new Queue<string>(approvals ?? Array.Empty<string>());
+        _approvals = new List<string>(approvals ?? Array.Empty<string>());
         _answers = new Queue<string>(clarificationAnswers ?? Array.Empty<string>());
     }
 
     public Task<ApprovalDecision> RequestApprovalAsync(ApprovalRequest request, CancellationToken ct)
     {
         string? script;
-        lock (_gate) script = _approvals.Count > 0 ? _approvals.Dequeue() : null;
+        lock (_gate)
+        {
+            var prefix = request.NodeId + "=>";
+            var index = _approvals.FindIndex(a => a.StartsWith(prefix, StringComparison.OrdinalIgnoreCase));
+            if (index < 0) index = _approvals.FindIndex(a => !a.Contains("=>"));
+            script = index < 0 ? null : _approvals[index];
+            if (index >= 0) _approvals.RemoveAt(index);
+            if (script is not null && script.Contains("=>")) script = script[(script.IndexOf("=>", StringComparison.Ordinal) + 2)..];
+        }
 
         if (script is null)
             return Task.FromResult(new ApprovalDecision(ApprovalOutcome.Rejected, "scripted-reviewer",

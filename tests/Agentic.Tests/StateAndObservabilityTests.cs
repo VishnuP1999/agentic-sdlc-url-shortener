@@ -86,6 +86,22 @@ public class ScriptedHumanTests
     }
 
     [Fact]
+    public async Task Keyed_approvals_go_to_their_stage_whatever_is_asked_first()
+    {
+        ApprovalRequest Ask(string node) => new("r", node, "why", "summary", Array.Empty<string>());
+        var human = new ScriptedHuman(new[] { "design=>approve", "release=>request_changes:docs:add limits", "release=>approve" });
+
+        // release is asked first (no schema change this time): it must not consume the design decision
+        var first = await human.RequestApprovalAsync(Ask("release"), default);
+        Assert.Equal(ApprovalOutcome.ChangesRequested, first.Outcome);
+        Assert.Equal("docs", first.TargetNode);
+        Assert.Equal(ApprovalOutcome.Approved, (await human.RequestApprovalAsync(Ask("release"), default)).Outcome);
+        Assert.Equal(ApprovalOutcome.Approved, (await human.RequestApprovalAsync(Ask("design"), default)).Outcome);
+        // nothing left for release: silence still means reject
+        Assert.Equal(ApprovalOutcome.Rejected, (await human.RequestApprovalAsync(Ask("release"), default)).Outcome);
+    }
+
+    [Fact]
     public async Task Unmatched_questions_get_no_answer_and_unused_answers_wait_for_the_next_round()
     {
         var human = new ScriptedHuman(clarificationAnswers: new[] { "latency=>p95 under 50 ms" });

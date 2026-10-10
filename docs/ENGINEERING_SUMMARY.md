@@ -39,7 +39,7 @@ structured output against a JSON schema, enforces per-call budgets, and can be l
 | Model adapter (Claude Code + fake) | `src/Agentic.Model` |
 | AI agents, rule-based fallbacks, workflow, sandbox, policies, scenarios | `src/Agentic.Agents`, `scenarios/*.json` |
 | CLI (scenarios, model smoke test, metrics, proposal export) | `src/Agentic.Cli` |
-| Tests: 37 product + 69 orchestrator/agents/adapter/sandbox/scenarios | `tests/` |
+| Tests: 37 product + 70 orchestrator/agents/adapter/sandbox/scenarios | `tests/` |
 | Architecture, diagrams, decisions | `docs/ARCHITECTURE.md` |
 | Per run: versioned artifacts, `state.json`, audit, lineage, model invocations, proposed files | `out/<runId>/` |
 

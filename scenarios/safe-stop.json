@@ -5,7 +5,8 @@
   "requirement": "Build a URL shortener service that creates and redirects short links and rate limits link creation.",
   "expectedStatus": "SafeStopped",
   "approvals": [
-    "approve"
+    "design=>approve",
+    "release=>approve"
   ],
   "clarifications": [],
   "faults": [

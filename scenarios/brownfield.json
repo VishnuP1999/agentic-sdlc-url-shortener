@@ -5,10 +5,10 @@
   "requirement": "Enhance the existing service: let link owners extend the expiry of an existing short link and show the remaining time in the stats response.",
   "expectedStatus": "Completed",
   "approvals": [
-    "approve",
-    "request_changes:design:Add audit logging for expiry changes",
-    "approve",
-    "approve"
+    "design=>approve",
+    "release=>request_changes:design:Add audit logging for expiry changes",
+    "design=>approve",
+    "release=>approve"
   ],
   "clarifications": [],
   "faults": [

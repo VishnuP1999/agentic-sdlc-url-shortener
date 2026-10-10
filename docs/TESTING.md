@@ -26,7 +26,7 @@ Results go to `TestResults/`.
 |---|---|---|---|
 | 1. build | The solution compiles with no errors | `dotnet build` | console |
 | 2. product tests (37) | The URL shortener works | Unit tests + in-process HTTP integration tests (real Kestrel on a random port, fake clock) | `TestResults/product.junit.xml` |
-| 3. engine tests (69) | Every orchestration control works, including its failure path | Fake model client (deterministic, free); one real sandbox build | `TestResults/engine.junit.xml` |
+| 3. engine tests (70) | Every orchestration control works, including its failure path | Fake model client (deterministic, free); one real sandbox build | `TestResults/engine.junit.xml` |
 | 4. acceptance (SIT) | The system meets the assignment end to end | Runs greenfield, brownfield, ambiguous and safe-stop; checks the **evidence** each run leaves; product smoke test | `TestResults/acceptance/acceptance.junit.xml`, `acceptance-report.md`, `acceptance-report.json` |
 
 ## Acceptance suite (stage 4) in detail
