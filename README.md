@@ -26,6 +26,45 @@ Success ends with **`ALL STAGES PASSED`**. Reports: `TestResults\acceptance\acce
 [`docs/sample-runs/acceptance-ai`](docs/sample-runs/acceptance-ai) (92/92 checks) and
 [`docs/sample-runs/acceptance-rules`](docs/sample-runs/acceptance-rules) (87/87 checks).
 
+`run-tests` is fully automatic and never asks for input. It shortens its own test link to prove the product works.
+To shorten **your own** link, use the section below.
+
+## Try the URL shortener yourself (shorten your own link)
+
+**Terminal 1: start the app and leave it running.** Wait for `Now listening on: http://localhost:5080`.
+
+```
+dotnet run --project src/UrlShortener.Api --urls http://localhost:5080
+```
+
+**Terminal 2: shorten a link** (replace the URL with yours):
+
+| Terminal | Command |
+|---|---|
+| Command Prompt | `curl -X POST http://localhost:5080/api/urls -H "Content-Type: application/json" -d "{\"url\":\"https://example.com/a/very/long/path\"}"` |
+| PowerShell | `Invoke-RestMethod -Method Post -Uri http://localhost:5080/api/urls -ContentType "application/json" -Body '{"url":"https://example.com/a/very/long/path"}'` |
+| Linux / macOS | `curl -X POST http://localhost:5080/api/urls -H 'Content-Type: application/json' -d '{"url":"https://example.com/a/very/long/path"}'` |
+
+The response contains the short link, e.g. `"shortUrl":"http://localhost:5080/r/aB3xK9q"`. **Open it in a browser** and it
+redirects to your original URL.
+
+More things to try (replace `aB3xK9q` with your code; Command Prompt syntax):
+
+```
+curl http://localhost:5080/api/urls/aB3xK9q/analytics
+curl http://localhost:5080/api/urls/aB3xK9q
+curl -X POST http://localhost:5080/api/urls -H "Content-Type: application/json" -d "{\"url\":\"https://example.com/page\",\"alias\":\"my-link\",\"expiresInMinutes\":60}"
+curl -X POST http://localhost:5080/api/urls -H "Content-Type: application/json" -d "{\"url\":\"http://127.0.0.1/admin\"}"
+```
+
+These show, in order:
+1. click analytics
+2. link details
+3. a custom alias that expires after 60 minutes
+4. an unsafe URL being rejected with 400
+
+Stop the app with **Ctrl+C** in terminal 1.
+
 > **Start here:** [docs/PROJECT_GUIDE.md](docs/PROJECT_GUIDE.md): what it does, what it needs, every activity, the security checks, how it is tested, the evidence, and a 10-minute demo plan.
 
 An agentic software-engineering system that turns a requirement into a **reviewable engineering outcome** under
