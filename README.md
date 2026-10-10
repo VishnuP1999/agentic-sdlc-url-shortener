@@ -247,7 +247,7 @@ flowchart TD
 | Folder | Mode | Outcome |
 |---|---|---|
 | `greenfield`, `brownfield`, `ambiguous`, `safe-stop` | `--agents rules --no-exec` (deterministic) | Completed, Completed, Completed, SafeStopped (as expected) |
-| `acceptance-ai` | Automated SIT, Claude agents | **PASSED 93/93 checks** (build, 37 + 68 tests, 4 scenarios, product smoke test) |
+| `acceptance-ai` | Automated SIT, Claude agents | **PASSED 93/93 checks** (build, 37 + 70 tests, 4 scenarios, product smoke test) |
 | `acceptance-rules` | Automated suite, rule-based | PASSED 87/87 |
 | `live-ai-greenfield` | Claude agents + real sandbox | Completed: 49/49 tests passed in the real runner, 12 of them written by the AI tester; $0.81 |
 | `live-ai-brownfield` | Claude agents + real sandbox | Completed: "extend expiry" implemented as 7 proposed source files; schema change approved; reviewer change request re-planned from design (plan v2); AI tests that were wrong about existing behaviour were caught by the real runner and repaired; 48/48 tests passed (11 AI-written); docs fell back to the rule-based agent after injected failures; 12 model calls, $1.59 |
