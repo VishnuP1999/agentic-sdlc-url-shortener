@@ -1,0 +1,694 @@
+{
+  "startedAt": "2026-10-10T11:11:37.1360032+00:00",
+  "finishedAt": "2026-10-10T11:45:58.5269991+00:00",
+  "agentMode": "ai",
+  "modeReason": "AI requested (claude-code:sonnet)",
+  "testsExecuted": true,
+  "machine": "VISHNU",
+  "scenarios": [
+    {
+      "name": "greenfield",
+      "status": "Completed",
+      "attempts": 1,
+      "latencyMs": 249831,
+      "modelCalls": 7,
+      "costUsd": 0.6996,
+      "runDirectory": "TestResults\\acceptance\\runs\\run-20261010-111137-5bf206"
+    },
+    {
+      "name": "brownfield",
+      "status": "Completed",
+      "attempts": 1,
+      "latencyMs": 1527896,
+      "modelCalls": 10,
+      "costUsd": 1.4232,
+      "runDirectory": "TestResults\\acceptance\\runs\\run-20261010-111547-59d1d4"
+    },
+    {
+      "name": "ambiguous",
+      "status": "Completed",
+      "attempts": 1,
+      "latencyMs": 199481,
+      "modelCalls": 6,
+      "costUsd": 0.5754,
+      "runDirectory": "TestResults\\acceptance\\runs\\run-20261010-114115-f46753"
+    },
+    {
+      "name": "safe-stop",
+      "status": "SafeStopped",
+      "attempts": 1,
+      "latencyMs": 83616,
+      "modelCalls": 4,
+      "costUsd": 0.2946,
+      "runDirectory": "TestResults\\acceptance\\runs\\run-20261010-114434-93585e"
+    }
+  ],
+  "checks": [
+    {
+      "suite": "environment",
+      "name": "AI agents required and available",
+      "passed": true,
+      "detail": "AI requested (claude-code:sonnet)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "status matches expectation",
+      "passed": true,
+      "detail": "expected Completed, got Completed",
+      "seconds": 250.0793444
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "audit trail hash chain is valid",
+      "passed": true,
+      "detail": "91 audit entries",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "decision lineage recorded for every completed stage",
+      "passed": true,
+      "detail": "9 agent decision(s) for 7 completed stage(s), 13 decision(s) in total",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "metrics recorded",
+      "passed": true,
+      "detail": "latency 249831 ms, attempts 11, retries 1, rollbacks 1",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "AI model was used",
+      "passed": true,
+      "detail": "7 model call(s), cost $0.6996",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "every stage succeeded",
+      "passed": true,
+      "detail": "7 stages",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "requirement normalised (no open ambiguity, testable criteria)",
+      "passed": true,
+      "detail": "9 functional, 6 non-functional, 8 assumption(s)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "task decomposition is a valid dependency graph",
+      "passed": true,
+      "detail": "8 tasks, roles developer/tester/documentation",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "design declares the required security controls",
+      "passed": true,
+      "detail": "url-scheme-allowlist, ssrf-block, input-limits, rate-limit, owner-token-hash-constant-time, secure-random-codes-and-tokens, no-pii-in-analytics",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "API contract (OpenAPI) and schema produced",
+      "passed": true,
+      "detail": "openapi \u002B schema artifacts",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "proposals are not applied by agents",
+      "passed": true,
+      "detail": "Proposed by the developer agent. NOT applied to the repository; validated in a sandbox and exported for human review.",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "tests executed by the real runner and passed",
+      "passed": true,
+      "detail": "mode=executed, 50/50 passed, exit code 0",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "every proposed test was actually executed",
+      "passed": true,
+      "detail": "11 executed, not executed: []",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "proposed code built in the sandbox",
+      "passed": true,
+      "detail": "build succeeded and 50/50 tests passed (exit code 0)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "release readiness checklist satisfied",
+      "passed": true,
+      "detail": "10 items",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "engineering summary has all required sections",
+      "passed": true,
+      "detail": "Plan and rationale, Artifacts, Risks, Assumptions, Limitations",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "human approved the release",
+      "passed": true,
+      "detail": "release approval decision",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "independent stages ran in parallel",
+      "passed": true,
+      "detail": "docs started at audit #29, implementation finished at #45",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "security stage waited for both branches (synchronisation)",
+      "passed": true,
+      "detail": "security started after tests and docs succeeded",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "AI agents produced engineering artifacts",
+      "passed": true,
+      "detail": "api-docs, changeset, design, openapi, plan, proposed-changes, proposed-tests, requirement, schema, test-plan",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "injected failure was retried and rolled back",
+      "passed": true,
+      "detail": "implementation attempts 2, rollbacks 1",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "recovery time (MTTR) measured",
+      "passed": true,
+      "detail": "MTTR 97209.9 ms over 1 recovery(ies)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "reviewer comment re-planned only the affected branch",
+      "passed": true,
+      "detail": "plan v2; target=docs; note=Document the rate limit response and Retry-After header; re-run=[docs, release, security]; preserved=[requirements, design, implementation, tests]",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.greenfield",
+      "name": "review note addressed in the re-generated docs",
+      "passed": true,
+      "detail": "api-docs@v2",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "status matches expectation",
+      "passed": true,
+      "detail": "expected Completed, got Completed",
+      "seconds": 1527.9183358
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "audit trail hash chain is valid",
+      "passed": true,
+      "detail": "181 audit entries",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "decision lineage recorded for every completed stage",
+      "passed": true,
+      "detail": "12 agent decision(s) for 7 completed stage(s), 18 decision(s) in total",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "metrics recorded",
+      "passed": true,
+      "detail": "latency 1527896 ms, attempts 23, retries 8, rollbacks 10",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "AI model was used",
+      "passed": true,
+      "detail": "10 model call(s), cost $1.4232",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "every stage succeeded",
+      "passed": true,
+      "detail": "7 stages",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "requirement normalised (no open ambiguity, testable criteria)",
+      "passed": true,
+      "detail": "4 functional, 2 non-functional, 6 assumption(s)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "task decomposition is a valid dependency graph",
+      "passed": true,
+      "detail": "7 tasks, roles developer/tester/documentation",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "design declares the required security controls",
+      "passed": true,
+      "detail": "url-scheme-allowlist, ssrf-block, input-limits, rate-limit, audit-logging, owner-check (OwnerClientId equals X-Client-Id, same as deactivate), max-lifetime cap (MaxExpiryMinutes, 365 days) checked before arithmetic to avoid overflow, body size limit already enforced by Kestrel MaxRequestBodyBytes",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "API contract (OpenAPI) and schema produced",
+      "passed": true,
+      "detail": "openapi \u002B schema artifacts",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "proposals are not applied by agents",
+      "passed": true,
+      "detail": "Proposed by the developer agent. NOT applied to the repository; validated in a sandbox and exported for human review.",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "tests executed by the real runner and passed",
+      "passed": true,
+      "detail": "mode=executed, 54/54 passed, exit code 0",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "every proposed test was actually executed",
+      "passed": true,
+      "detail": "12 executed, not executed: []",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "proposed code built in the sandbox",
+      "passed": true,
+      "detail": "build succeeded and 54/54 tests passed (exit code 0)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "release readiness checklist satisfied",
+      "passed": true,
+      "detail": "10 items",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "engineering summary has all required sections",
+      "passed": true,
+      "detail": "Plan and rationale, Artifacts, Risks, Assumptions, Limitations",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "human approved the release",
+      "passed": true,
+      "detail": "release approval decision",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "independent stages ran in parallel",
+      "passed": true,
+      "detail": "docs started at audit #28, implementation finished at #83",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "security stage waited for both branches (synchronisation)",
+      "passed": true,
+      "detail": "security started after tests and docs succeeded",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "AI agents produced engineering artifacts",
+      "passed": true,
+      "detail": "changeset, design, openapi, plan, proposed-changes, proposed-tests, requirement, schema, test-plan",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "impact analysis names real files of the existing codebase",
+      "passed": true,
+      "detail": "src/UrlShortener.Api/Endpoints/ShortLinkEndpoints.cs, src/UrlShortener.Api/Services/ShortenerService.cs, src/UrlShortener.Api/Services/Results.cs, src/UrlShortener.Api/Persistence/IUrlRepository.cs, src/UrlShortener.Api/Persistence/InMemoryUrlRepository.cs, src/UrlShortener.Api/AppHost.cs, src/UrlShortener.Api/Endpoints/Contracts.cs",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "schema change detected and gated by a human",
+      "passed": true,
+      "detail": "schemaChange=True",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "change request re-planned from design and was applied",
+      "passed": true,
+      "detail": "\u0022Add audit logging for expiry changes\u0022 -\u003E plan v2",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "failing docs agent was replaced by its fallback",
+      "passed": true,
+      "detail": "fallbacks 2, docs by DocsAgent",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.brownfield",
+      "name": "developer proposed real code for the enhancement",
+      "passed": true,
+      "detail": "src/UrlShortener.Api/Services/Results.cs, src/UrlShortener.Api/Persistence/IUrlRepository.cs, src/UrlShortener.Api/Persistence/InMemoryUrlRepository.cs, src/UrlShortener.Api/Services/ShortenerService.cs, src/UrlShortener.Api/Endpoints/ShortLinkEndpoints.cs, src/UrlShortener.Api/AppHost.cs, tests/UrlShortener.Tests/ExtendServiceTests.cs",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "status matches expectation",
+      "passed": true,
+      "detail": "expected Completed, got Completed",
+      "seconds": 199.5064456
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "audit trail hash chain is valid",
+      "passed": true,
+      "detail": "67 audit entries",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "decision lineage recorded for every completed stage",
+      "passed": true,
+      "detail": "7 agent decision(s) for 7 completed stage(s), 9 decision(s) in total",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "metrics recorded",
+      "passed": true,
+      "detail": "latency 199481 ms, attempts 8, retries 0, rollbacks 0",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "AI model was used",
+      "passed": true,
+      "detail": "6 model call(s), cost $0.5754",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "every stage succeeded",
+      "passed": true,
+      "detail": "7 stages",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "requirement normalised (no open ambiguity, testable criteria)",
+      "passed": true,
+      "detail": "6 functional, 3 non-functional, 8 assumption(s)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "task decomposition is a valid dependency graph",
+      "passed": true,
+      "detail": "9 tasks, roles developer/tester/documentation",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "design declares the required security controls",
+      "passed": true,
+      "detail": "url-scheme-allowlist, ssrf-block, input-limits, rate-limit",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "API contract (OpenAPI) and schema produced",
+      "passed": true,
+      "detail": "openapi \u002B schema artifacts",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "proposals are not applied by agents",
+      "passed": true,
+      "detail": "Proposed by the developer agent. NOT applied to the repository; validated in a sandbox and exported for human review.",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "tests executed by the real runner and passed",
+      "passed": true,
+      "detail": "mode=executed, 48/48 passed, exit code 0",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "every proposed test was actually executed",
+      "passed": true,
+      "detail": "11 executed, not executed: []",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "proposed code built in the sandbox",
+      "passed": true,
+      "detail": "build succeeded and 48/48 tests passed (exit code 0)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "release readiness checklist satisfied",
+      "passed": true,
+      "detail": "10 items",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "engineering summary has all required sections",
+      "passed": true,
+      "detail": "Plan and rationale, Artifacts, Risks, Assumptions, Limitations",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "human approved the release",
+      "passed": true,
+      "detail": "release approval decision",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "independent stages ran in parallel",
+      "passed": true,
+      "detail": "docs started at audit #26, implementation finished at #40",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "security stage waited for both branches (synchronisation)",
+      "passed": true,
+      "detail": "security started after tests and docs succeeded",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "AI agents produced engineering artifacts",
+      "passed": true,
+      "detail": "api-docs, changeset, design, openapi, plan, proposed-changes, proposed-tests, requirement, schema, test-plan",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "ambiguity paused the run for human clarification",
+      "passed": true,
+      "detail": "1 clarification round(s)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "answers became explicit assumptions",
+      "passed": true,
+      "detail": "2 answer(s) applied, 8 assumption(s)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "vague wording became measurable non-functional requirements",
+      "passed": true,
+      "detail": "Redirect p95 latency under 50 ms at a sustained 500 req/s | Redirect error rate under 0.1% during the 500 req/s load test | Click events are recorded off the redirect request path (asynchronously), with bounded queue capacity and no redirect blocking when full",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.ambiguous",
+      "name": "each clarification answer matched its question",
+      "passed": true,
+      "detail": "2 answered question(s)",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "status matches expectation",
+      "passed": true,
+      "detail": "expected SafeStopped, got SafeStopped (Critical policy violation at \u0027implementation\u0027: [SEC-001-no-secrets] Possible hard-coded secret in artifact \u0027changeset@v1\u0027.)",
+      "seconds": 83.6258683
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "audit trail hash chain is valid",
+      "passed": true,
+      "detail": "38 audit entries",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "decision lineage recorded for every completed stage",
+      "passed": true,
+      "detail": "3 agent decision(s) for 3 completed stage(s), 3 decision(s) in total",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "metrics recorded",
+      "passed": true,
+      "detail": "latency 83616 ms, attempts 4, retries 0, rollbacks 1",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "AI model was used",
+      "passed": true,
+      "detail": "4 model call(s), cost $0.2946",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "critical policy stopped the run",
+      "passed": true,
+      "detail": "Critical policy violation at \u0027implementation\u0027: [SEC-001-no-secrets] Possible hard-coded secret in artifact \u0027changeset@v1\u0027.",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "unsafe output was rolled back",
+      "passed": true,
+      "detail": "no change-set in the final context",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "nothing was released",
+      "passed": true,
+      "detail": "release=Skipped",
+      "seconds": 0
+    },
+    {
+      "suite": "scenario.safe-stop",
+      "name": "violation was not retried",
+      "passed": true,
+      "detail": "critical violations are never retried",
+      "seconds": 0
+    },
+    {
+      "suite": "governance",
+      "name": "repository source unchanged by agents",
+      "passed": true,
+      "detail": "SHA-256 over src/UrlShortener.Api and tests/UrlShortener.Tests before and after the suite",
+      "seconds": 0
+    },
+    {
+      "suite": "product.url-shortener",
+      "name": "health endpoint is up",
+      "passed": true,
+      "detail": "GET /health -\u003E 200",
+      "seconds": 0.0764088
+    },
+    {
+      "suite": "product.url-shortener",
+      "name": "shorten a link",
+      "passed": true,
+      "detail": "201, shortUrl http://127.0.0.1:52213/r/bmQ75Kz",
+      "seconds": 0.016565
+    },
+    {
+      "suite": "product.url-shortener",
+      "name": "short link redirects to the original URL",
+      "passed": true,
+      "detail": "302 -\u003E https://example.com/products/2026/very/long/path?campaign=sit",
+      "seconds": 0.0020558
+    },
+    {
+      "suite": "product.url-shortener",
+      "name": "click analytics are recorded",
+      "passed": true,
+      "detail": "totalClicks=1",
+      "seconds": 0.0066014
+    },
+    {
+      "suite": "product.url-shortener",
+      "name": "link metadata is available",
+      "passed": true,
+      "detail": "200",
+      "seconds": 0.0015555
+    },
+    {
+      "suite": "product.url-shortener",
+      "name": "custom alias works and duplicates are rejected",
+      "passed": true,
+      "detail": "201 then 409",
+      "seconds": 0.0067914
+    },
+    {
+      "suite": "product.url-shortener",
+      "name": "unsafe target URLs are rejected",
+      "passed": true,
+      "detail": "loopback, metadata, javascript: and malformed URLs -\u003E 400",
+      "seconds": 0.0024758
+    },
+    {
+      "suite": "product.url-shortener",
+      "name": "unknown codes return 404",
+      "passed": true,
+      "detail": "404",
+      "seconds": 0.0007377
+    }
+  ],
+  "failed": 0,
+  "passed": true
+}

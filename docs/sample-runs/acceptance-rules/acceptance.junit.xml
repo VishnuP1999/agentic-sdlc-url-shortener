@@ -1,0 +1,299 @@
+<testsuites name="Agentic SDLC acceptance" tests="87" failures="0" time="18.386">
+  <testsuite name="scenario.greenfield" tests="23" failures="0" time="4.689">
+    <properties>
+      <property name="agentMode" value="rules" />
+      <property name="testsExecuted" value="true" />
+    </properties>
+    <testcase classname="scenario.greenfield" name="status matches expectation" time="4.689">
+      <system-out>expected Completed, got Completed</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="audit trail hash chain is valid" time="0.000">
+      <system-out>78 audit entries</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="decision lineage recorded for every completed stage" time="0.000">
+      <system-out>9 agent decision(s) for 7 completed stage(s), 12 decision(s) in total</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="metrics recorded" time="0.000">
+      <system-out>latency 4635 ms, attempts 10, retries 1, rollbacks 1</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="no model calls in rule-based mode" time="0.000">
+      <system-out>0 model call(s), cost $0.0000</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="every stage succeeded" time="0.000">
+      <system-out>7 stages</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="requirement normalised (no open ambiguity, testable criteria)" time="0.000">
+      <system-out>8 functional, 0 non-functional, 2 assumption(s)</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="task decomposition is a valid dependency graph" time="0.000">
+      <system-out>17 tasks, roles developer/tester/documentation</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="design declares the required security controls" time="0.000">
+      <system-out>url-scheme-allowlist, ssrf-block, input-limits, rate-limit</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="API contract (OpenAPI) and schema produced" time="0.000">
+      <system-out>openapi + schema artifacts</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="proposals are not applied by agents" time="0.000">
+      <system-out>Rule-based planner: the change-set lists affected paths only; no code is proposed.</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="tests executed by the real runner and passed" time="0.000">
+      <system-out>mode=executed, 37/37 passed, exit code 0</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="every proposed test was actually executed" time="0.000">
+      <system-out>0 executed, not executed: []</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="proposed code built in the sandbox" time="0.000">
+      <system-out>build succeeded and 37/37 tests passed (exit code 0)</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="release readiness checklist satisfied" time="0.000">
+      <system-out>10 items</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="engineering summary has all required sections" time="0.000">
+      <system-out>Plan and rationale, Artifacts, Risks, Assumptions, Limitations</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="human approved the release" time="0.000">
+      <system-out>release approval decision</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="independent stages ran in parallel" time="0.000">
+      <system-out>docs started at audit #22, implementation finished at #36</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="security stage waited for both branches (synchronisation)" time="0.000">
+      <system-out>security started after tests and docs succeeded</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="injected failure was retried and rolled back" time="0.000">
+      <system-out>implementation attempts 2, rollbacks 1</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="recovery time (MTTR) measured" time="0.000">
+      <system-out>MTTR 4467.5 ms over 1 recovery(ies)</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="reviewer comment re-planned only the affected branch" time="0.000">
+      <system-out>plan v2; target=docs; note=Document the rate limit response and Retry-After header; re-run=[docs, release, security]; preserved=[requirements, design, implementation, tests]</system-out>
+    </testcase>
+    <testcase classname="scenario.greenfield" name="review note addressed in the re-generated docs" time="0.000">
+      <system-out>api-docs@v2</system-out>
+    </testcase>
+  </testsuite>
+  <testsuite name="scenario.brownfield" tests="23" failures="0" time="8.808">
+    <properties>
+      <property name="agentMode" value="rules" />
+      <property name="testsExecuted" value="true" />
+    </properties>
+    <testcase classname="scenario.brownfield" name="status matches expectation" time="8.808">
+      <system-out>expected Completed, got Completed</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="audit trail hash chain is valid" time="0.000">
+      <system-out>134 audit entries</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="decision lineage recorded for every completed stage" time="0.000">
+      <system-out>12 agent decision(s) for 7 completed stage(s), 17 decision(s) in total</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="metrics recorded" time="0.000">
+      <system-out>latency 8799 ms, attempts 18, retries 4, rollbacks 6</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="no model calls in rule-based mode" time="0.000">
+      <system-out>0 model call(s), cost $0.0000</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="every stage succeeded" time="0.000">
+      <system-out>7 stages</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="requirement normalised (no open ambiguity, testable criteria)" time="0.000">
+      <system-out>3 functional, 0 non-functional, 3 assumption(s)</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="task decomposition is a valid dependency graph" time="0.000">
+      <system-out>7 tasks, roles developer/tester/documentation</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="design declares the required security controls" time="0.000">
+      <system-out>url-scheme-allowlist, ssrf-block, input-limits, rate-limit, audit-logging</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="API contract (OpenAPI) and schema produced" time="0.000">
+      <system-out>openapi + schema artifacts</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="proposals are not applied by agents" time="0.000">
+      <system-out>Rule-based planner: the change-set lists affected paths only; no code is proposed.</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="tests executed by the real runner and passed" time="0.000">
+      <system-out>mode=executed, 37/37 passed, exit code 0</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="every proposed test was actually executed" time="0.000">
+      <system-out>0 executed, not executed: []</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="proposed code built in the sandbox" time="0.000">
+      <system-out>build succeeded and 37/37 tests passed (exit code 0)</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="release readiness checklist satisfied" time="0.000">
+      <system-out>10 items</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="engineering summary has all required sections" time="0.000">
+      <system-out>Plan and rationale, Artifacts, Risks, Assumptions, Limitations</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="human approved the release" time="0.000">
+      <system-out>release approval decision</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="independent stages ran in parallel" time="0.000">
+      <system-out>docs started at audit #27, implementation finished at #46</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="security stage waited for both branches (synchronisation)" time="0.000">
+      <system-out>security started after tests and docs succeeded</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="impact analysis names real files of the existing codebase" time="0.000">
+      <system-out>src/UrlShortener.Api/Analytics/ClickRecorder.cs, src/UrlShortener.Api/Services/ShortenerService.cs, src/UrlShortener.Api/Analytics/AnalyticsStore.cs, src/UrlShortener.Api/Services/Results.cs, src/UrlShortener.Api/Domain/ShortLink.cs, src/UrlShortener.Api/Endpoints/ShortLinkEndpoints.cs, src/UrlShortener.Api/AppHost.cs</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="schema change detected and gated by a human" time="0.000">
+      <system-out>schemaChange=True</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="change request re-planned from design and was applied" time="0.000">
+      <system-out>"Add audit logging for expiry changes" -&gt; plan v2</system-out>
+    </testcase>
+    <testcase classname="scenario.brownfield" name="failing docs agent was replaced by its fallback" time="0.000">
+      <system-out>fallbacks 2, docs by MinimalDocsAgent</system-out>
+    </testcase>
+  </testsuite>
+  <testsuite name="scenario.ambiguous" tests="23" failures="0" time="4.495">
+    <properties>
+      <property name="agentMode" value="rules" />
+      <property name="testsExecuted" value="true" />
+    </properties>
+    <testcase classname="scenario.ambiguous" name="status matches expectation" time="4.495">
+      <system-out>expected Completed, got Completed</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="audit trail hash chain is valid" time="0.000">
+      <system-out>59 audit entries</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="decision lineage recorded for every completed stage" time="0.000">
+      <system-out>7 agent decision(s) for 7 completed stage(s), 9 decision(s) in total</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="metrics recorded" time="0.000">
+      <system-out>latency 4477 ms, attempts 8, retries 0, rollbacks 0</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="no model calls in rule-based mode" time="0.000">
+      <system-out>0 model call(s), cost $0.0000</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="every stage succeeded" time="0.000">
+      <system-out>7 stages</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="requirement normalised (no open ambiguity, testable criteria)" time="0.000">
+      <system-out>6 functional, 2 non-functional, 4 assumption(s)</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="task decomposition is a valid dependency graph" time="0.000">
+      <system-out>13 tasks, roles developer/tester/documentation</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="design declares the required security controls" time="0.000">
+      <system-out>url-scheme-allowlist, ssrf-block, input-limits, rate-limit</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="API contract (OpenAPI) and schema produced" time="0.000">
+      <system-out>openapi + schema artifacts</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="proposals are not applied by agents" time="0.000">
+      <system-out>Rule-based planner: the change-set lists affected paths only; no code is proposed.</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="tests executed by the real runner and passed" time="0.000">
+      <system-out>mode=executed, 37/37 passed, exit code 0</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="every proposed test was actually executed" time="0.000">
+      <system-out>0 executed, not executed: []</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="proposed code built in the sandbox" time="0.000">
+      <system-out>build succeeded and 37/37 tests passed (exit code 0)</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="release readiness checklist satisfied" time="0.000">
+      <system-out>10 items</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="engineering summary has all required sections" time="0.000">
+      <system-out>Plan and rationale, Artifacts, Risks, Assumptions, Limitations</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="human approved the release" time="0.000">
+      <system-out>release approval decision</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="independent stages ran in parallel" time="0.000">
+      <system-out>docs started at audit #29, implementation finished at #35</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="security stage waited for both branches (synchronisation)" time="0.000">
+      <system-out>security started after tests and docs succeeded</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="ambiguity paused the run for human clarification" time="0.000">
+      <system-out>1 clarification round(s)</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="answers became explicit assumptions" time="0.000">
+      <system-out>2 answer(s) applied, 4 assumption(s)</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="vague wording became measurable non-functional requirements" time="0.000">
+      <system-out>p95 redirect latency &lt;= 50 ms | sustain 500 requests/second</system-out>
+    </testcase>
+    <testcase classname="scenario.ambiguous" name="each clarification answer matched its question" time="0.000">
+      <system-out>2 answered question(s)</system-out>
+    </testcase>
+  </testsuite>
+  <testsuite name="scenario.safe-stop" tests="9" failures="0" time="0.064">
+    <properties>
+      <property name="agentMode" value="rules" />
+      <property name="testsExecuted" value="true" />
+    </properties>
+    <testcase classname="scenario.safe-stop" name="status matches expectation" time="0.064">
+      <system-out>expected SafeStopped, got SafeStopped (Critical policy violation at 'implementation': [SEC-001-no-secrets] Possible hard-coded secret in artifact 'changeset@v1'.)</system-out>
+    </testcase>
+    <testcase classname="scenario.safe-stop" name="audit trail hash chain is valid" time="0.000">
+      <system-out>30 audit entries</system-out>
+    </testcase>
+    <testcase classname="scenario.safe-stop" name="decision lineage recorded for every completed stage" time="0.000">
+      <system-out>2 agent decision(s) for 2 completed stage(s), 2 decision(s) in total</system-out>
+    </testcase>
+    <testcase classname="scenario.safe-stop" name="metrics recorded" time="0.000">
+      <system-out>latency 56 ms, attempts 3, retries 0, rollbacks 1</system-out>
+    </testcase>
+    <testcase classname="scenario.safe-stop" name="no model calls in rule-based mode" time="0.000">
+      <system-out>0 model call(s), cost $0.0000</system-out>
+    </testcase>
+    <testcase classname="scenario.safe-stop" name="critical policy stopped the run" time="0.000">
+      <system-out>Critical policy violation at 'implementation': [SEC-001-no-secrets] Possible hard-coded secret in artifact 'changeset@v1'.</system-out>
+    </testcase>
+    <testcase classname="scenario.safe-stop" name="unsafe output was rolled back" time="0.000">
+      <system-out>no change-set in the final context</system-out>
+    </testcase>
+    <testcase classname="scenario.safe-stop" name="nothing was released" time="0.000">
+      <system-out>release=Skipped</system-out>
+    </testcase>
+    <testcase classname="scenario.safe-stop" name="violation was not retried" time="0.000">
+      <system-out>critical violations are never retried</system-out>
+    </testcase>
+  </testsuite>
+  <testsuite name="governance" tests="1" failures="0" time="0.000">
+    <properties>
+      <property name="agentMode" value="rules" />
+      <property name="testsExecuted" value="true" />
+    </properties>
+    <testcase classname="governance" name="repository source unchanged by agents" time="0.000">
+      <system-out>SHA-256 over src/UrlShortener.Api and tests/UrlShortener.Tests before and after the suite</system-out>
+    </testcase>
+  </testsuite>
+  <testsuite name="product.url-shortener" tests="8" failures="0" time="0.188">
+    <properties>
+      <property name="agentMode" value="rules" />
+      <property name="testsExecuted" value="true" />
+    </properties>
+    <testcase classname="product.url-shortener" name="health endpoint is up" time="0.079">
+      <system-out>GET /health -&gt; 200</system-out>
+    </testcase>
+    <testcase classname="product.url-shortener" name="shorten a link" time="0.018">
+      <system-out>201, shortUrl http://127.0.0.1:56335/r/bmQ75Kz</system-out>
+    </testcase>
+    <testcase classname="product.url-shortener" name="short link redirects to the original URL" time="0.002">
+      <system-out>302 -&gt; https://example.com/products/2026/very/long/path?campaign=sit</system-out>
+    </testcase>
+    <testcase classname="product.url-shortener" name="click analytics are recorded" time="0.068">
+      <system-out>totalClicks=1</system-out>
+    </testcase>
+    <testcase classname="product.url-shortener" name="link metadata is available" time="0.004">
+      <system-out>200</system-out>
+    </testcase>
+    <testcase classname="product.url-shortener" name="custom alias works and duplicates are rejected" time="0.013">
+      <system-out>201 then 409</system-out>
+    </testcase>
+    <testcase classname="product.url-shortener" name="unsafe target URLs are rejected" time="0.003">
+      <system-out>loopback, metadata, javascript: and malformed URLs -&gt; 400</system-out>
+    </testcase>
+    <testcase classname="product.url-shortener" name="unknown codes return 404" time="0.001">
+      <system-out>404</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
