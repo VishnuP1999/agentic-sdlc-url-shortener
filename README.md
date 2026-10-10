@@ -1,19 +1,30 @@
 # Agentic SDLC System: URL Shortener
 
-## Run everything (one command)
+## For reviewers: run everything with one command
 
-Open **Command Prompt**, go to the project folder and run:
+Prerequisite: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0). Open a terminal in the project folder and
+pick **one** option:
 
-```
-cd C:\path\to\AgenticSdlc
-run-tests ai
-```
+| | Option A: without AI (recommended first) | Option B: with real AI agents |
+|---|---|---|
+| **Windows (Command Prompt)** | `run-tests rules` | `run-tests ai` |
+| **Windows (PowerShell)** | `.\run-tests.ps1 -Agents rules` | `.\run-tests.ps1 -Agents ai -RequireAi` |
+| **Linux / macOS** | `AGENTS=rules ./run-tests.sh` | `AGENTS=ai REQUIRE_AI=1 ./run-tests.sh` |
+| Extra requirement | none | [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and logged in, or `ANTHROPIC_API_KEY` set |
+| Time / cost | about 1 minute / free | about 30 minutes / about $3 in model usage |
+| Agents | Built-in rule-based agents (deterministic) | Claude planner, developer, tester and documentation agents |
 
-This builds the project, runs all tests, runs the greenfield, brownfield, ambiguous and safe-stop scenarios with real
-Claude agents, and checks the URL shortener end to end. It takes about 30 minutes and costs about $3. Success ends with `ALL STAGES PASSED`;
-the report is in `TestResults\acceptance\acceptance-report.md`.
+**Both options run the same pipeline**:
+1. Build the solution.
+2. Run 37 product tests and 68 engine tests.
+3. Run the greenfield, brownfield, ambiguous and safe-stop scenarios end to end and check their evidence.
+4. Start the URL shortener and test it (shorten → redirect → analytics). Proposed code is built and tested in a
+   throw-away copy, so the repository is never modified.
 
-No Claude Code on the machine? Use `run-tests rules` instead: the same checks with built-in rule-based agents, free, about 1 minute.
+Success ends with **`ALL STAGES PASSED`**. Reports: `TestResults\acceptance\acceptance-report.md`, plus JUnit XML in
+`TestResults\`. Results of both options from our own runs are in
+[`docs/sample-runs/acceptance-ai`](docs/sample-runs/acceptance-ai) (92/92 checks) and
+[`docs/sample-runs/acceptance-rules`](docs/sample-runs/acceptance-rules) (87/87 checks).
 
 > **Start here:** [docs/PROJECT_GUIDE.md](docs/PROJECT_GUIDE.md): what it does, what it needs, every activity, the security checks, how it is tested, the evidence, and a 10-minute demo plan.
 
