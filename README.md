@@ -26,7 +26,7 @@ One command. It runs everything by itself and never asks for input. Pick **one**
 
 **What it does** (both options):
 1. Builds the solution.
-2. Runs 37 product tests and 68 engine tests.
+2. Runs 37 product tests and 69 engine tests.
 3. Runs the greenfield, brownfield, ambiguous and safe-stop scenarios end to end and checks their evidence.
 4. Starts the URL shortener and checks it automatically with a test link (shorten → redirect → analytics).
 
