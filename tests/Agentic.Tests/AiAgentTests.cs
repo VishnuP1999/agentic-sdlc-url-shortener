@@ -288,6 +288,47 @@ public class AiAgentTests
     }
 
     [Fact]
+    public async Task Controls_written_with_explanations_are_normalised_and_the_explanation_kept()
+    {
+        // Regression (AI SIT run): the model wrote "url-scheme-allowlist: existing UrlValidator stays in force ...".
+        var explained = new[]
+        {
+            "url-scheme-allowlist: no new URL input, the existing UrlValidator stays in force",
+            "ssrf-block: no server-side fetching", "input-limits: body capped by MaxRequestBodyBytes",
+            "rate-limit: extend endpoint calls the existing limiter"
+        };
+        var model = new FakeModelClient((r, _) => r.Role == "planner" && !r.SystemPrompt.Contains("requirements analysis")
+            ? FakeAnswers.Design(controls: explained)
+            : FakeAnswers.Route(r));
+
+        var run = await RunAsync(model);
+
+        Assert.Equal(RunStatus.Completed, run.Result.Status);
+        Assert.Equal(1, T.Report(run.Result, "design").Attempts);
+        var design = JsonSerializer.Deserialize<DesignSpec>(run.Result.Artifacts.Single(a => a.Name == Artifacts.Design).Content, Json.Options)!;
+        Assert.True(ArchitectAgent.RequiredControls.All(design.Controls.Contains), string.Join(", ", design.Controls));
+        Assert.True(design.Decisions.Any(d => d.Decision == "Control url-scheme-allowlist" && d.Rationale.Contains("UrlValidator")));
+    }
+
+    [Fact]
+    public void Required_controls_are_checked_even_when_a_change_does_not_touch_link_creation()
+    {
+        // An enhancement that only adds PUT /api/urls/{code}/expiry must still keep the abuse-prevention controls,
+        // and this must fail at design time (repairable), not only in the release checklist.
+        var ctx = new RunContext("r");
+        var design = new DesignSpec("brownfield", Array.Empty<string>(),
+            new[] { new EndpointSpec("PUT", "/api/urls/{code}/expiry", "Extend", new[] { 200 }) }, Array.Empty<string>(), true,
+            new[] { "audit-logging" }, Array.Empty<string>(), Array.Empty<DesignDecision>(), Array.Empty<ImpactItem>(),
+            Array.Empty<string>(), Array.Empty<string>(), Array.Empty<string>());
+        var artifact = ctx.Put(Artifact.FromJson(Artifacts.Design, design, "t"));
+
+        var violations = new RequiredControlsPolicy().Evaluate(new PolicyContext(ctx, "design", new[] { artifact })).ToList();
+
+        Assert.Equal(4, violations.Count);
+        Assert.True(violations.All(v => v.Severity == Severity.High));
+    }
+
+    [Fact]
     public void Plan_validator_rejects_cycles_unknown_roles_and_uncovered_requirements()
     {
         var req = new NormalizedRequirement("greenfield", "g",

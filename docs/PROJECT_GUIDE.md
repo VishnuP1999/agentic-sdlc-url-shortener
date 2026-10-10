@@ -206,7 +206,7 @@ flowchart TD
 |---|---|---|
 | Build | 1 | Whole solution compiles, 0 warnings |
 | Product tests | 37 | URL shortener: unit tests + real HTTP integration tests (in-process server, controllable clock) |
-| Engine tests | 70 | Every orchestration control **including its failure path**: scheduling, parallelism, state machine, retries, rollback (incl. parallel-branch safety), fallback, safe-stop, approvals, re-planning, policies, permissions, audit, metrics, persistence; AI agents with a fake model; Claude Code adapter; sandbox (including one real build-and-test run) |
+| Engine tests | 72 | Every orchestration control **including its failure path**: scheduling, parallelism, state machine, retries, rollback (incl. parallel-branch safety), fallback, safe-stop, approvals, re-planning, policies, permissions, audit, metrics, persistence; AI agents with a fake model; Claude Code adapter; sandbox (including one real build-and-test run) |
 | Acceptance (SIT) | 87+ checks | All 4 scenarios end to end, judged on their **evidence** (artifacts, audit trail, lineage, metrics, real test results), repository-unchanged check, live product smoke test (shorten → redirect → analytics, unsafe URLs, 404s) |
 
 Outputs:

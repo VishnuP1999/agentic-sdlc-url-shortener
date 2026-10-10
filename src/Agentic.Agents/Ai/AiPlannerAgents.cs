@@ -138,6 +138,8 @@ public sealed class AiArchitectAgent : AiAgent<AiDesignOutput>
           Every functional requirement must map to at least one endpoint.
           Existing routes (GET /{code}, GET /api/urls/{code}/stats, DELETE /api/urls/{code}) must keep working.
         - Security controls must always include: {{string.Join(", ", ArchitectAgent.RequiredControls)}}; add "audit-logging" when audit is required.
+          "controls" holds ONLY the bare control ids (lowercase-with-dashes, e.g. "rate-limit"), even when a control is
+          unchanged by this change; explain how each control applies in "decisions", never inside the id.
         - Brownfield: base the impact analysis on the source files provided; list only files that exist, with the reason.
           Set schemaChange=true if persisted data changes shape.
         - Echo every reviewer change request verbatim in appliedChangeRequests and reflect it in the design and a decision.
@@ -157,7 +159,7 @@ public sealed class AiArchitectAgent : AiAgent<AiDesignOutput>
               "statuses":{"type":"array","items":{"type":"integer"}}}}},
           "dataModel":{"type":"array","items":{"type":"string"}},
           "schemaChange":{"type":"boolean"},
-          "controls":{"type":"array","items":{"type":"string"}},
+          "controls":{"type":"array","items":{"type":"string","pattern":"^[a-z0-9]+(-[a-z0-9]+)*$"}},
           "risks":{"type":"array","items":{"type":"string"}},
           "decisions":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["decision","rationale","alternative"],
             "properties":{"decision":{"type":"string"},"rationale":{"type":"string"},"alternative":{"type":"string"}}}},
@@ -221,8 +223,22 @@ public sealed class AiArchitectAgent : AiAgent<AiDesignOutput>
 
         // A model cannot opt out of change control: the deterministic rule also flags schema changes.
         var ruleSchemaChange = req.Kind == "brownfield" && req.Functional.Any(f => ArchitectAgent.SchemaAffectingKinds.Contains(f.Kind));
-        var design = new DesignSpec(req.Kind, o.Components, o.Endpoints, o.DataModel, o.SchemaChange || ruleSchemaChange, o.Controls,
-            o.Risks, o.Decisions, impact, impactedEndpoints, o.DataFlows, notes);
+        // Controls are identifiers checked by policy. If the model still wrote "id: explanation", keep the id as the
+        // control and the explanation as a design decision, so neither the check nor the reasoning is lost.
+        var controls = new List<string>();
+        var decisions = o.Decisions.ToList();
+        foreach (var raw in o.Controls)
+        {
+            var split = raw.IndexOfAny(new[] { ':', ' ', '(' });
+            var id = (split > 0 ? raw[..split] : raw).Trim().TrimEnd('.', ',').ToLowerInvariant();
+            if (id.Length == 0 || controls.Contains(id)) continue;
+            controls.Add(id);
+            if (split > 0 && raw[split..].Trim(':', ' ', '-').Length > 0)
+                decisions.Add(new DesignDecision($"Control {id}", raw[split..].Trim(':', ' ', '-', '(', ')'), "n/a"));
+        }
+
+        var design = new DesignSpec(req.Kind, o.Components, o.Endpoints, o.DataModel, o.SchemaChange || ruleSchemaChange, controls,
+            o.Risks, decisions, impact, impactedEndpoints, o.DataFlows, notes);
         var plan = new TaskPlan(o.Tasks);
 
         return new AgentResult(new[]

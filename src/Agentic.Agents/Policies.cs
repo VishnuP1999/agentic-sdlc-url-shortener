@@ -9,13 +9,15 @@ public sealed class RequiredControlsPolicy : IPolicy
     private static readonly string[] Required = { "url-scheme-allowlist", "ssrf-block", "input-limits", "rate-limit" };
 
     public string Id => "SEC-002-required-controls";
-    public string Description => "Designs exposing POST /api/urls must include scheme allow-list, SSRF block, input limits and rate limiting.";
+    // The service accepts user-supplied URLs whether or not a given change touches link creation, so every design
+    // (greenfield or an enhancement) must keep these controls. Checked at design time, where it can still be repaired,
+    // and again by the release checklist.
+    public string Description => "Every design must include scheme allow-list, SSRF block, input limits and rate limiting (by exact control id).";
 
     public IEnumerable<PolicyViolation> Evaluate(PolicyContext context)
     {
         var artifact = context.Artifacts.FirstOrDefault(a => a.Name == Artifacts.Design);
         if (artifact is null || !context.Run.TryGetJson<DesignSpec>(Artifacts.Design, out var design) || design is null) yield break;
-        if (!design.Endpoints.Any(e => e.Method == "POST" && e.Path == "/api/urls")) yield break;
 
         foreach (var control in Required.Where(r => !design.Controls.Contains(r)))
             yield return new PolicyViolation(Id, Severity.High, $"Design is missing required control '{control}'.");
