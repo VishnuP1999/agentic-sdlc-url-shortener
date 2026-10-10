@@ -151,6 +151,10 @@ namespace Xunit
                     failed.Add(name);
                     results.Add((type.Name, method.Name, clock.Elapsed.TotalSeconds, $"{inner.GetType().Name}: {inner.Message}"));
                     Console.WriteLine($"  FAIL  {name}\n        {inner.GetType().Name}: {inner.Message.Replace("\n", "\n        ")}");
+                    // where it happened: the first frames that point at source lines (skip framework internals)
+                    foreach (var frame in (inner.StackTrace ?? "").Split('\n').Select(l => l.Trim())
+                                 .Where(l => l.Contains(" in ") && !l.Contains("MiniXunit.cs")).Take(3))
+                        Console.WriteLine($"        {frame}");
                 }
                 finally
                 {

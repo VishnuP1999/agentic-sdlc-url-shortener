@@ -255,6 +255,13 @@ public static class SdlcWorkflow
         return ctx.GetFact(Facts.ExecuteTests) == "true" && repo.Length > 0;
     }
 
+    /// <summary>Source of the failing tests, appended to the failure so the repair attempt can see what is expected.</summary>
+    private static string RepairHint(string repo, IReadOnlyList<ProposedFile> files, SandboxReport report, string guidance)
+    {
+        var sources = SandboxValidator.FailingTestSources(repo, files, report.FailedTests);
+        return sources.Length == 0 ? "" : $"\n\nSource of the failing test(s). {guidance}\n{sources}";
+    }
+
     /// <summary>Developer proposals must build and keep the existing suite green before anyone writes tests against them.</summary>
     private static async Task<GateResult> ValidateImplementationAsync(RunContext ctx, SandboxValidator sandbox, CancellationToken ct)
     {
@@ -266,7 +273,8 @@ public static class SdlcWorkflow
         var evidence = Artifact.FromJson(Artifacts.ValidationReport, report, "orchestrator:sandbox");
         return report.Passed
             ? GateResult.Pass($"sandbox: {SandboxValidator.Describe(report)} with {files.Count} proposed file(s) applied", evidence)
-            : GateResult.Fail($"sandbox: {SandboxValidator.Describe(report)}", evidence);
+            : GateResult.Fail($"sandbox: {SandboxValidator.Describe(report)}{RepairHint(repo, files, report,
+                "These existing tests define required behaviour: change the product code so they pass, do not change these tests.")}", evidence);
     }
 
     /// <summary>
@@ -309,7 +317,9 @@ public static class SdlcWorkflow
             Artifact.FromJson(Artifacts.ValidationReport, report, "orchestrator:sandbox")
         };
 
-        if (!report.Passed) return GateResult.Fail($"sandbox: {SandboxValidator.Describe(report)}", evidence);
+        if (!report.Passed)
+            return GateResult.Fail($"sandbox: {SandboxValidator.Describe(report)}{RepairHint(repo, all, report,
+                "Fix your proposed tests if they assume behaviour the product does not have; never weaken an assertion that encodes an acceptance criterion.")}", evidence);
         if (testReport.ProposedTestsNotExecuted!.Count > 0)
             return GateResult.Fail($"proposed tests did not run: {string.Join(", ", testReport.ProposedTestsNotExecuted)}", evidence);
         return GateResult.Pass($"{testReport.Detail}; {testReport.ProposedTestsExecuted!.Count} proposed test(s) executed", evidence);

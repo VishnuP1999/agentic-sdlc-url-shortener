@@ -101,7 +101,7 @@ the HTTP API is one new class.
 - Adapter tests use a fake process runner to cover error classification and the exact CLI flags.
 - One test runs the real sandbox.
 - The live model is checked by `--check-model` and the scenario runs.
-- 105 automated tests in total (37 product + 68 orchestrator).
+- 106 automated tests in total (37 product + 69 orchestrator).
 
 **Q15. What is the weakest part?**
 - Output quality varies between runs: the gates catch bad output, but a run can need repairs or end `Failed`.
@@ -128,7 +128,7 @@ A regression test reproduces the interleaving. The governance layer did its job:
 shipping without docs.
 
 **Q18. How is it tested without anyone running commands by hand?**
-`./run-tests.ps1` (or `run-tests.sh` on Linux) builds and runs the 37 product tests, the 68 engine tests, and the
+`./run-tests.ps1` (or `run-tests.sh` on Linux) builds and runs the 37 product tests, the 69 engine tests, and the
 acceptance suite: all four scenarios end to end, checked on their evidence, plus a live smoke test of the URL shortener.
 It writes JUnit XML for the CI dashboard and exits non-zero on any failure. CI runs it rule-based on every push (about
 1 minute, no secrets) and with real Claude agents nightly as SIT. Without Claude Code it automatically falls back to

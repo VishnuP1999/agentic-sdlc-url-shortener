@@ -464,6 +464,24 @@ public class SandboxTests
     }
 
     [Fact]
+    public void Repair_feedback_includes_the_source_of_failing_tests()
+    {
+        // existing test from the repository, found by class + method name
+        var existing = SandboxValidator.FailingTestSources(Repo.Root, Array.Empty<ProposedFile>(),
+            new[] { "ApiIntegrationTests.Concurrent_creates_never_collide" });
+        Assert.Contains("Concurrent_creates_never_collide", existing);
+        Assert.Contains("Enumerable.Range(0, 200)", existing);              // the body, not just the name
+        Assert.Contains("tests/UrlShortener.Tests/ApiIntegrationTests.cs", existing);
+
+        // a proposed (not yet existing) test file is searched too, including expression-bodied tests
+        var proposed = new ProposedFile("tests/UrlShortener.Tests/Generated/GeneratedX.cs", "create", "s",
+            "public class GeneratedX\n{\n    [Fact]\n    public void Fails() => Assert.Equal(1, 2);\n}\n");
+        Assert.Contains("Assert.Equal(1, 2)", SandboxValidator.FailingTestSources(Repo.Root, new[] { proposed }, new[] { "GeneratedX.Fails" }));
+
+        Assert.Equal("", SandboxValidator.FailingTestSources(Repo.Root, Array.Empty<ProposedFile>(), Array.Empty<string>()));
+    }
+
+    [Fact]
     public async Task Real_sandbox_run_uses_the_actual_test_runner_and_never_touches_the_repository()
     {
         // a proposed test that fails on purpose: the only way to see the failure is to really build and run the suite

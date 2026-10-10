@@ -179,7 +179,7 @@ Individual suites:
 
 ```bash
 dotnet run --project tests/UrlShortener.Tests   # product: unit + in-process HTTP integration tests (37)
-dotnet run --project tests/Agentic.Tests        # engine, state machine, AI agents (fake model), adapter, sandbox, scenarios (68)
+dotnet run --project tests/Agentic.Tests        # engine, state machine, AI agents (fake model), adapter, sandbox, scenarios (69)
 dotnet run --project tests/Agentic.Tests -- Sandbox   # optional name filter
 dotnet run --project tests/Agentic.Acceptance -- --agents rules   # acceptance suite only
 ```

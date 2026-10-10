@@ -149,7 +149,7 @@ public sealed partial class SandboxValidator
         {
             if (!lines[i].TrimStart().StartsWith("FAIL ", StringComparison.Ordinal)) continue;
             sb.AppendLine(lines[i].Trim());
-            for (var j = i + 1; j < lines.Length && j <= i + 4 && lines[j].StartsWith("        ", StringComparison.Ordinal); j++)
+            for (var j = i + 1; j < lines.Length && j <= i + 8 && lines[j].StartsWith("        ", StringComparison.Ordinal); j++)
                 sb.AppendLine(lines[j].Trim());
         }
         var text = sb.Length > 0 ? sb.ToString() : string.Join('\n', lines.TakeLast(25));
@@ -181,6 +181,64 @@ public sealed partial class SandboxValidator
             if (name is "bin" or "obj" or ".vs") continue;
             CopyDirectory(dir, Path.Combine(target, name));
         }
+    }
+
+    /// <summary>
+    /// The source of each failing test, so a repairing agent can see what is actually expected (it only knows test
+    /// names otherwise). Proposed files override repository files of the same path. At most <paramref name="max"/> tests.
+    /// </summary>
+    public static string FailingTestSources(string repoRoot, IReadOnlyList<ProposedFile> proposed, IReadOnlyList<string> failedTests, int max = 3)
+    {
+        if (failedTests.Count == 0) return "";
+        var sources = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        var testDir = Path.Combine(repoRoot, "tests", "UrlShortener.Tests");
+        if (Directory.Exists(testDir))
+            foreach (var file in Directory.EnumerateFiles(testDir, "*.cs", SearchOption.AllDirectories))
+            {
+                var rel = Path.GetRelativePath(repoRoot, file).Replace('\\', '/');
+                if (!rel.Contains("/bin/") && !rel.Contains("/obj/")) sources[rel] = File.ReadAllText(file);
+            }
+        foreach (var f in proposed.Where(f => f.Path.StartsWith("tests/", StringComparison.Ordinal))) sources[f.Path] = f.Content;
+
+        var sb = new StringBuilder();
+        foreach (var test in failedTests.Take(max))
+        {
+            var dot = test.LastIndexOf('.');
+            if (dot <= 0) continue;
+            var (cls, method) = (test[..dot], test[(dot + 1)..]);
+            foreach (var (path, content) in sources)
+            {
+                if (!Regex.IsMatch(content, $@"\bclass\s+{Regex.Escape(cls)}\b")) continue;
+                var body = ExtractMethod(content, method);
+                if (body is null) continue;
+                sb.AppendLine($"<source path=\"{path}\" test=\"{test}\">");
+                sb.AppendLine(body.Length > 3000 ? body[..3000] + "\n...(truncated)" : body);
+                sb.AppendLine("</source>");
+                break;
+            }
+        }
+        return sb.ToString();
+    }
+
+    private static string? ExtractMethod(string content, string method)
+    {
+        var m = Regex.Match(content, $@"(\[Fact\]\s*)?public[^\n;{{]*\b{Regex.Escape(method)}\s*\(");
+        if (!m.Success) return null;
+        var open = content.IndexOf('{', m.Index);
+        var arrow = content.IndexOf("=>", m.Index, StringComparison.Ordinal);
+        if (arrow >= 0 && (open < 0 || arrow < open))
+        {
+            var end = content.IndexOf(';', arrow);
+            return end < 0 ? null : content[m.Index..(end + 1)];
+        }
+        if (open < 0) return null;
+        var depth = 0;
+        for (var i = open; i < content.Length; i++)
+        {
+            if (content[i] == '{') depth++;
+            else if (content[i] == '}' && --depth == 0) return content[m.Index..(i + 1)];
+        }
+        return null;
     }
 
     /// <summary>A concise, actionable reason for a failed sandbox run (fed back to the agent for repair).</summary>
