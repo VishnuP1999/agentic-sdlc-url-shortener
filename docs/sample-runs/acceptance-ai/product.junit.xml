@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <testsuites>
-  <testsuite name="UrlShortener.Tests" tests="37" failures="0" time="0.750">
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Alias_conflict_returns_409" time="0.277" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Canonical_routes_redirect_return_metadata_and_analytics" time="0.051" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Canonical_routes_return_404_for_unknown_codes" time="0.016" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Concurrent_creates_never_collide" time="0.063" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Create_redirect_and_stats_flow" time="0.023" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Delete_is_owner_only_and_makes_link_gone" time="0.026" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Expired_link_returns_410" time="0.024" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Health_endpoint_is_up" time="0.018" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Invalid_and_unsafe_urls_return_400" time="0.019" />
+  <testsuite name="UrlShortener.Tests" tests="37" failures="0" time="0.952">
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Alias_conflict_returns_409" time="0.566" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Canonical_routes_redirect_return_metadata_and_analytics" time="0.038" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Canonical_routes_return_404_for_unknown_codes" time="0.013" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Concurrent_creates_never_collide" time="0.073" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Create_redirect_and_stats_flow" time="0.015" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Delete_is_owner_only_and_makes_link_gone" time="0.017" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Expired_link_returns_410" time="0.019" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Health_endpoint_is_up" time="0.013" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Invalid_and_unsafe_urls_return_400" time="0.015" />
     <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Missing_body_returns_400" time="0.018" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Oversized_body_is_rejected" time="0.020" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Rate_limit_returns_429_with_retry_after" time="0.025" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Repeated_create_for_same_client_is_idempotent" time="0.021" />
-    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Unknown_code_returns_404" time="0.015" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Oversized_body_is_rejected" time="0.016" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Rate_limit_returns_429_with_retry_after" time="0.016" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Repeated_create_for_same_client_is_idempotent" time="0.016" />
+    <testcase classname="UrlShortener.Tests.ApiIntegrationTests" name="Unknown_code_returns_404" time="0.014" />
     <testcase classname="UrlShortener.Tests.CodecTests" name="Base62_rejects_negative_and_invalid_input" time="0.001" />
     <testcase classname="UrlShortener.Tests.CodecTests" name="Base62_round_trips" time="0.000" />
     <testcase classname="UrlShortener.Tests.CodecTests" name="Consecutive_ids_do_not_produce_consecutive_codes" time="0.000" />
-    <testcase classname="UrlShortener.Tests.CodecTests" name="Generated_codes_are_unique_and_short" time="0.116" />
-    <testcase classname="UrlShortener.Tests.RateLimiterTests" name="Blocks_after_limit_and_resets_after_window" time="0.001" />
+    <testcase classname="UrlShortener.Tests.CodecTests" name="Generated_codes_are_unique_and_short" time="0.086" />
+    <testcase classname="UrlShortener.Tests.RateLimiterTests" name="Blocks_after_limit_and_resets_after_window" time="0.000" />
     <testcase classname="UrlShortener.Tests.RateLimiterTests" name="Clients_are_limited_independently" time="0.000" />
-    <testcase classname="UrlShortener.Tests.ServiceTests" name="Analytics_store_aggregates_per_day" time="0.002" />
-    <testcase classname="UrlShortener.Tests.ServiceTests" name="Click_queue_drops_instead_of_blocking_when_full" time="0.001" />
+    <testcase classname="UrlShortener.Tests.ServiceTests" name="Analytics_store_aggregates_per_day" time="0.001" />
+    <testcase classname="UrlShortener.Tests.ServiceTests" name="Click_queue_drops_instead_of_blocking_when_full" time="0.000" />
     <testcase classname="UrlShortener.Tests.ServiceTests" name="Create_is_idempotent_per_client_and_url" time="0.001" />
     <testcase classname="UrlShortener.Tests.ServiceTests" name="Create_returns_unique_codes_for_different_urls" time="0.000" />
-    <testcase classname="UrlShortener.Tests.ServiceTests" name="Create_validates_input" time="0.000" />
+    <testcase classname="UrlShortener.Tests.ServiceTests" name="Create_validates_input" time="0.001" />
     <testcase classname="UrlShortener.Tests.ServiceTests" name="Custom_alias_is_used_and_conflicts_are_reported" time="0.000" />
     <testcase classname="UrlShortener.Tests.ServiceTests" name="Expired_link_can_be_recreated_with_a_new_code" time="0.000" />
     <testcase classname="UrlShortener.Tests.ServiceTests" name="Only_the_owner_can_deactivate" time="0.001" />

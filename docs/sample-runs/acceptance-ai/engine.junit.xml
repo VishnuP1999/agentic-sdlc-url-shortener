@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <testsuites>
-  <testsuite name="Agentic.Tests" tests="68" failures="0" time="8.718">
-    <testcase classname="Agentic.Tests.AiAgentTests" name="A_model_cannot_skip_change_control_for_a_brownfield_schema_change" time="0.280" />
-    <testcase classname="Agentic.Tests.AiAgentTests" name="Ai_agents_drive_the_full_workflow_and_every_model_call_is_recorded" time="0.063" />
-    <testcase classname="Agentic.Tests.AiAgentTests" name="Design_gate_accepts_reasonable_extend_routes_and_explains_what_is_missing" time="0.008" />
-    <testcase classname="Agentic.Tests.AiAgentTests" name="Developer_proposals_outside_the_allowed_scope_are_rejected" time="0.069" />
+  <testsuite name="Agentic.Tests" tests="70" failures="0" time="6.316">
+    <testcase classname="Agentic.Tests.AiAgentTests" name="A_model_cannot_skip_change_control_for_a_brownfield_schema_change" time="0.236" />
+    <testcase classname="Agentic.Tests.AiAgentTests" name="Ai_agents_drive_the_full_workflow_and_every_model_call_is_recorded" time="0.049" />
+    <testcase classname="Agentic.Tests.AiAgentTests" name="Design_gate_accepts_reasonable_extend_routes_and_explains_what_is_missing" time="0.006" />
+    <testcase classname="Agentic.Tests.AiAgentTests" name="Developer_proposals_outside_the_allowed_scope_are_rejected" time="0.059" />
     <testcase classname="Agentic.Tests.AiAgentTests" name="Plan_validator_rejects_cycles_unknown_roles_and_uncovered_requirements" time="0.002" />
-    <testcase classname="Agentic.Tests.AiAgentTests" name="Rejected_model_output_triggers_a_repair_attempt_with_the_reason" time="0.072" />
-    <testcase classname="Agentic.Tests.AiAgentTests" name="Unavailable_model_falls_back_to_rule_based_agents_without_wasting_retries" time="0.067" />
-    <testcase classname="Agentic.Tests.AiAgentTests" name="Untrusted_requirement_text_is_framed_as_data_and_the_model_gets_strict_rules" time="0.046" />
+    <testcase classname="Agentic.Tests.AiAgentTests" name="Rejected_model_output_triggers_a_repair_attempt_with_the_reason" time="0.067" />
+    <testcase classname="Agentic.Tests.AiAgentTests" name="Unavailable_model_falls_back_to_rule_based_agents_without_wasting_retries" time="0.058" />
+    <testcase classname="Agentic.Tests.AiAgentTests" name="Untrusted_requirement_text_is_framed_as_data_and_the_model_gets_strict_rules" time="0.041" />
     <testcase classname="Agentic.Tests.AnalysisTests" name="Codebase_map_finds_types_and_routes_with_group_prefixes" time="0.013" />
-    <testcase classname="Agentic.Tests.AnalysisTests" name="Impact_ranking_prefers_the_files_that_match_the_change" time="0.016" />
+    <testcase classname="Agentic.Tests.AnalysisTests" name="Impact_ranking_prefers_the_files_that_match_the_change" time="0.017" />
     <testcase classname="Agentic.Tests.AnalysisTests" name="Policies_detect_secrets_missing_controls_and_pii" time="0.001" />
     <testcase classname="Agentic.Tests.AnalysisTests" name="Sdlc_graph_has_the_expected_shape" time="0.001" />
     <testcase classname="Agentic.Tests.GovernanceTests" name="Approval_gate_pauses_for_the_human_and_proceeds_when_approved" time="0.001" />
@@ -21,53 +21,55 @@
     <testcase classname="Agentic.Tests.GovernanceTests" name="Rejecting_an_after_run_approval_discards_the_unapproved_output" time="0.000" />
     <testcase classname="Agentic.Tests.GovernanceTests" name="Rejection_and_silence_both_stop_the_run" time="0.001" />
     <testcase classname="Agentic.Tests.ModelAdapterTests" name="Claude_code_runs_without_tools_and_takes_the_prompt_on_stdin" time="0.003" />
-    <testcase classname="Agentic.Tests.ModelAdapterTests" name="Errors_are_classified_and_only_transient_ones_are_retryable" time="0.003" />
+    <testcase classname="Agentic.Tests.ModelAdapterTests" name="Errors_are_classified_and_only_transient_ones_are_retryable" time="0.004" />
     <testcase classname="Agentic.Tests.ModelAdapterTests" name="Json_in_the_result_text_is_accepted_when_structured_output_is_absent" time="0.000" />
-    <testcase classname="Agentic.Tests.ModelAdapterTests" name="Missing_executable_is_a_non_retryable_configuration_error" time="0.001" />
+    <testcase classname="Agentic.Tests.ModelAdapterTests" name="Missing_executable_is_a_non_retryable_configuration_error" time="0.002" />
     <testcase classname="Agentic.Tests.ModelAdapterTests" name="Model_configuration_comes_from_the_environment" time="0.003" />
     <testcase classname="Agentic.Tests.ModelAdapterTests" name="Structured_output_usage_cost_and_actual_model_are_extracted" time="0.002" />
     <testcase classname="Agentic.Tests.PermissionTests" name="A_node_cannot_write_artifacts_outside_its_permissions" time="0.001" />
     <testcase classname="Agentic.Tests.PersistenceAndObservabilityTests" name="Cross_run_metrics_are_calculated_from_recorded_history_within_a_window" time="0.007" />
     <testcase classname="Agentic.Tests.PersistenceAndObservabilityTests" name="Model_invocations_are_audited_and_summarised_without_prompt_content" time="0.001" />
-    <testcase classname="Agentic.Tests.PersistenceAndObservabilityTests" name="Run_history_round_trips_through_the_index_file_and_ignores_torn_lines" time="0.034" />
-    <testcase classname="Agentic.Tests.PersistenceAndObservabilityTests" name="Workflow_state_is_persisted_while_the_run_progresses" time="0.061" />
-    <testcase classname="Agentic.Tests.ReliabilityTests" name="Entry_gate_failure_safe_stops_before_the_agent_runs" time="0.002" />
+    <testcase classname="Agentic.Tests.PersistenceAndObservabilityTests" name="Run_history_round_trips_through_the_index_file_and_ignores_torn_lines" time="0.026" />
+    <testcase classname="Agentic.Tests.PersistenceAndObservabilityTests" name="Workflow_state_is_persisted_while_the_run_progresses" time="0.047" />
+    <testcase classname="Agentic.Tests.ReliabilityTests" name="Entry_gate_failure_safe_stops_before_the_agent_runs" time="0.001" />
     <testcase classname="Agentic.Tests.ReliabilityTests" name="Failed_output_is_rolled_back_to_the_last_known_good_context" time="0.002" />
-    <testcase classname="Agentic.Tests.ReliabilityTests" name="Fallback_agent_takes_over_after_retries_are_exhausted" time="0.002" />
+    <testcase classname="Agentic.Tests.ReliabilityTests" name="Fallback_agent_takes_over_after_retries_are_exhausted" time="0.001" />
     <testcase classname="Agentic.Tests.ReliabilityTests" name="Fallback_restricted_to_unavailability_does_not_mask_repeated_bad_output" time="0.001" />
     <testcase classname="Agentic.Tests.ReliabilityTests" name="Kill_switch_stops_the_run_and_blocks_downstream_work" time="0.001" />
     <testcase classname="Agentic.Tests.ReliabilityTests" name="Non_retryable_failure_skips_retries_and_goes_straight_to_the_fallback" time="0.001" />
     <testcase classname="Agentic.Tests.ReliabilityTests" name="Repair_attempt_receives_the_previous_failure_as_feedback" time="0.001" />
-    <testcase classname="Agentic.Tests.ReliabilityTests" name="Retry_budget_is_bounded_the_node_fails_and_its_dependents_are_blocked" time="0.002" />
-    <testcase classname="Agentic.Tests.ReliabilityTests" name="Rollback_in_one_branch_never_discards_a_parallel_branch_output" time="0.008" />
-    <testcase classname="Agentic.Tests.ReliabilityTests" name="Safe_stop_cancels_in_flight_parallel_work" time="0.071" />
+    <testcase classname="Agentic.Tests.ReliabilityTests" name="Retry_budget_is_bounded_the_node_fails_and_its_dependents_are_blocked" time="0.001" />
+    <testcase classname="Agentic.Tests.ReliabilityTests" name="Rollback_in_one_branch_never_discards_a_parallel_branch_output" time="0.004" />
+    <testcase classname="Agentic.Tests.ReliabilityTests" name="Safe_stop_cancels_in_flight_parallel_work" time="0.059" />
     <testcase classname="Agentic.Tests.ReliabilityTests" name="Timeout_counts_as_a_failure" time="0.152" />
-    <testcase classname="Agentic.Tests.ReliabilityTests" name="Transient_failure_is_retried_rolled_back_and_recovery_time_is_measured" time="0.001" />
-    <testcase classname="Agentic.Tests.ReplanTests" name="Ambiguity_pauses_the_run_for_clarification_and_continues_with_the_answers" time="0.003" />
-    <testcase classname="Agentic.Tests.ReplanTests" name="Change_request_re_runs_the_target_and_its_dependents_but_keeps_unaffected_branches" time="0.003" />
-    <testcase classname="Agentic.Tests.ReplanTests" name="Default_target_is_the_upstream_node_of_the_approval" time="0.001" />
-    <testcase classname="Agentic.Tests.ReplanTests" name="Re_planning_is_bounded" time="0.001" />
+    <testcase classname="Agentic.Tests.ReliabilityTests" name="Transient_failure_is_retried_rolled_back_and_recovery_time_is_measured" time="0.002" />
+    <testcase classname="Agentic.Tests.ReplanTests" name="Ambiguity_pauses_the_run_for_clarification_and_continues_with_the_answers" time="0.006" />
+    <testcase classname="Agentic.Tests.ReplanTests" name="Change_request_re_runs_the_target_and_its_dependents_but_keeps_unaffected_branches" time="0.006" />
+    <testcase classname="Agentic.Tests.ReplanTests" name="Default_target_is_the_upstream_node_of_the_approval" time="0.002" />
+    <testcase classname="Agentic.Tests.ReplanTests" name="Re_planning_is_bounded" time="0.004" />
     <testcase classname="Agentic.Tests.ReplanTests" name="Unanswered_clarifications_are_bounded" time="0.001" />
     <testcase classname="Agentic.Tests.ReplanTests" name="Unknown_change_target_safe_stops" time="0.001" />
-    <testcase classname="Agentic.Tests.RequirementsAgentTests" name="Answers_resolve_ambiguity_and_become_assumptions_and_nfrs" time="0.002" />
-    <testcase classname="Agentic.Tests.RequirementsAgentTests" name="Brownfield_requirement_only_includes_what_was_asked_for" time="0.001" />
+    <testcase classname="Agentic.Tests.RequirementsAgentTests" name="Answers_resolve_ambiguity_and_become_assumptions_and_nfrs" time="0.003" />
+    <testcase classname="Agentic.Tests.RequirementsAgentTests" name="Brownfield_requirement_only_includes_what_was_asked_for" time="0.000" />
     <testcase classname="Agentic.Tests.RequirementsAgentTests" name="Vague_wording_is_flagged_as_ambiguity" time="0.001" />
     <testcase classname="Agentic.Tests.SandboxTests" name="Change_guard_allows_only_scoped_source_files" time="0.000" />
-    <testcase classname="Agentic.Tests.SandboxTests" name="Real_sandbox_run_uses_the_actual_test_runner_and_never_touches_the_repository" time="6.267" />
-    <testcase classname="Agentic.Tests.SandboxTests" name="Runner_output_is_parsed_into_executed_and_failed_tests" time="0.006" />
-    <testcase classname="Agentic.Tests.ScenarioTests" name="Ambiguous_requirement_pauses_for_clarification_then_completes" time="0.070" />
-    <testcase classname="Agentic.Tests.ScenarioTests" name="Brownfield_analyses_impact_gates_the_schema_change_and_replans_from_design" time="0.156" />
-    <testcase classname="Agentic.Tests.ScenarioTests" name="Greenfield_recovers_from_a_transient_failure_and_replans_only_the_docs_branch" time="0.062" />
-    <testcase classname="Agentic.Tests.ScenarioTests" name="Leaked_credential_triggers_safe_stop_before_release" time="0.037" />
-    <testcase classname="Agentic.Tests.ScenarioTests" name="Policy_blocks_a_design_without_required_security_controls" time="0.007" />
-    <testcase classname="Agentic.Tests.ScenarioTests" name="Without_a_human_decision_the_release_is_never_approved" time="0.049" />
-    <testcase classname="Agentic.Tests.SchedulingTests" name="Dependents_are_computed_transitively" time="0.002" />
-    <testcase classname="Agentic.Tests.SchedulingTests" name="Graph_validation_rejects_cycles_missing_dependencies_and_duplicates" time="0.004" />
-    <testcase classname="Agentic.Tests.SchedulingTests" name="Independent_branches_run_in_parallel_and_the_join_waits_for_both" time="0.154" />
+    <testcase classname="Agentic.Tests.SandboxTests" name="Real_sandbox_run_uses_the_actual_test_runner_and_never_touches_the_repository" time="4.258" />
+    <testcase classname="Agentic.Tests.SandboxTests" name="Repair_feedback_includes_the_source_of_failing_tests" time="0.004" />
+    <testcase classname="Agentic.Tests.SandboxTests" name="Runner_output_is_parsed_into_executed_and_failed_tests" time="0.001" />
+    <testcase classname="Agentic.Tests.ScenarioTests" name="Ambiguous_requirement_pauses_for_clarification_then_completes" time="0.020" />
+    <testcase classname="Agentic.Tests.ScenarioTests" name="Brownfield_analyses_impact_gates_the_schema_change_and_replans_from_design" time="0.045" />
+    <testcase classname="Agentic.Tests.ScenarioTests" name="Greenfield_recovers_from_a_transient_failure_and_replans_only_the_docs_branch" time="0.015" />
+    <testcase classname="Agentic.Tests.ScenarioTests" name="Leaked_credential_triggers_safe_stop_before_release" time="0.010" />
+    <testcase classname="Agentic.Tests.ScenarioTests" name="Policy_blocks_a_design_without_required_security_controls" time="0.002" />
+    <testcase classname="Agentic.Tests.ScenarioTests" name="Without_a_human_decision_the_release_is_never_approved" time="0.012" />
+    <testcase classname="Agentic.Tests.SchedulingTests" name="Dependents_are_computed_transitively" time="0.001" />
+    <testcase classname="Agentic.Tests.SchedulingTests" name="Graph_validation_rejects_cycles_missing_dependencies_and_duplicates" time="0.001" />
+    <testcase classname="Agentic.Tests.SchedulingTests" name="Independent_branches_run_in_parallel_and_the_join_waits_for_both" time="0.155" />
     <testcase classname="Agentic.Tests.ScriptedHumanTests" name="Keyed_answers_follow_the_question_not_the_position" time="0.001" />
-    <testcase classname="Agentic.Tests.ScriptedHumanTests" name="Unmatched_questions_get_no_answer_and_unused_answers_wait_for_the_next_round" time="0.002" />
-    <testcase classname="Agentic.Tests.StateMachineTests" name="Every_transition_in_a_complex_run_is_legal_and_the_engine_ends_in_a_terminal_or_success_state" time="0.006" />
-    <testcase classname="Agentic.Tests.StateMachineTests" name="Illegal_transitions_are_rejected_and_terminal_states_are_final" time="0.002" />
+    <testcase classname="Agentic.Tests.ScriptedHumanTests" name="Keyed_approvals_go_to_their_stage_whatever_is_asked_first" time="0.001" />
+    <testcase classname="Agentic.Tests.ScriptedHumanTests" name="Unmatched_questions_get_no_answer_and_unused_answers_wait_for_the_next_round" time="0.001" />
+    <testcase classname="Agentic.Tests.StateMachineTests" name="Every_transition_in_a_complex_run_is_legal_and_the_engine_ends_in_a_terminal_or_success_state" time="0.002" />
+    <testcase classname="Agentic.Tests.StateMachineTests" name="Illegal_transitions_are_rejected_and_terminal_states_are_final" time="0.001" />
     <testcase classname="Agentic.Tests.StateMachineTests" name="Legal_transitions_follow_the_task_lifecycle" time="0.000" />
   </testsuite>
 </testsuites>

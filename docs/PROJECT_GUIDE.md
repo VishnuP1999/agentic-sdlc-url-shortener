@@ -238,7 +238,7 @@ agent's claim.
 | `docs/sample-runs/live-ai-brownfield` | Completed: "extend expiry" implemented; schema change approved; re-plan from design; 48/48 passed, 11 AI-written; the AI repaired a failing test using the runner's output |
 | `docs/sample-runs/live-ai-ambiguous` | Completed: vague requirement → clarifications → measurable targets; 48/48 passed |
 | `docs/sample-runs/live-ai-greenfield-blocked` | Failed by design: AI code broke an existing test (caught and repaired), then test coverage stayed incomplete, so **release was blocked** |
-| `docs/sample-runs/acceptance-ai` | **Automated SIT with real AI: PASSED 92/92 checks**: build, 37 + 68 tests, all four scenarios and the product smoke test, about $3 |
+| `docs/sample-runs/acceptance-ai` | **Automated SIT with real AI: PASSED 93/93 checks**: build, 37 + 68 tests, all four scenarios and the product smoke test, about $3 |
 | `docs/sample-runs/acceptance-rules` | Same suite, rule-based agents: PASSED 87/87 in about 20 s |
 | `docs/sample-runs/{greenfield,brownfield,ambiguous,safe-stop}` | Deterministic runs of all four scenarios |
 
