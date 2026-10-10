@@ -83,6 +83,11 @@ One command runs the build, all unit and integration tests, and the end-to-end a
 brownfield, ambiguous and safe-stop, plus a live smoke test of the URL shortener. It writes JUnit XML to `TestResults/` and
 exits 0 only if everything passed. Details: [`docs/TESTING.md`](docs/TESTING.md).
 
+```bat
+run-tests            :: Command Prompt: auto (AI if available)
+run-tests rules      :: Command Prompt: free, about 1 min
+run-tests ai         :: Command Prompt: real Claude agents required
+```
 ```powershell
 ./run-tests.ps1                         # AI if Claude Code is available, else rule-based
 ./run-tests.ps1 -Agents rules           # deterministic and free (CI on every commit, about 1 min)

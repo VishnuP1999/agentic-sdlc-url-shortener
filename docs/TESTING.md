@@ -3,6 +3,11 @@
 Every test is automated. One command runs everything. It exits `0` only if every stage passed and writes JUnit XML that
 any CI server can display.
 
+```bat
+run-tests            :: Command Prompt: auto (AI if available)
+run-tests rules      :: Command Prompt: free, about 1 min
+run-tests ai         :: Command Prompt: real Claude agents required
+```
 ```powershell
 ./run-tests.ps1                    # Windows. AI agents if Claude Code is installed and healthy, else rule-based
 ./run-tests.ps1 -Agents rules      # deterministic, free: the gate for every commit
